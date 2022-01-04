@@ -1,0 +1,638 @@
+[
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_assets_images_icons_arrowback.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/assets_images_icons_arrowback.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_xml.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_xml.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_syntaxes.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_syntaxes.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_evadesign_eva_mapping.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_evadesign_eva_mapping.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_adaptive_fore.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-mdpi/ic_launcher_adaptive_fore.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_csstree_data_patch.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_csstree_data_patch.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_assets_icons_check.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_assets_icons_check.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_calendar.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_calendar.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_login_imagebackgroundios.jpeg.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_login_imagebackgroundios.jpeg"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_app.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/app.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_assets_icons_search.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_assets_icons_search.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_icons_arrowback.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_icons_arrowback.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_adaptive_back.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-mdpi/ic_launcher_adaptive_back.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_adaptive_fore.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_adaptive_fore.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativesvg_node_modules_cssselect_lib_procedure.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_reactnativesvg_node_modules_cssselect_lib_procedure.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher_adaptive_back.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_adaptive_back.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_components_stackaggregator_assets_arrowdown.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_components_stackaggregator_assets_arrowdown.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable_splash_screen.jpeg.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/drawable/splash_screen.jpeg"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_assets_icons_checksmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_assets_icons_checksmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_gallery.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_gallery.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_properties.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_properties.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher_adaptive_fore.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xhdpi/ic_launcher_adaptive_fore.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_entities.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_entities.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_assets_icons_plussmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_assets_icons_plussmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_assets_icons_search.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_assets_icons_search.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_assets_icons_chevronright.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_assets_icons_chevronright.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativecalendars_src_calendar_img_next.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativecalendars_src_calendar_img_next.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher_adaptive_fore.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-hdpi/ic_launcher_adaptive_fore.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativecalendars_src_calendar_img_next.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativecalendars_src_calendar_img_next.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_drawer_pages.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_drawer_pages.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativecalendars_src_img_up.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativecalendars_src_img_up.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_assets_icons_x.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_assets_icons_x.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_assets_icons_plussmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_assets_icons_plussmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_csstree_package.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_csstree_package.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_blog.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_blog.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/layout_launch_screen.xml.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/layout/launch_screen.xml"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_assets_icons_plussmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_assets_icons_plussmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_assets_icons_settings.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_assets_icons_settings.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_drawer_blog.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_drawer_blog.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_adaptive_back.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_adaptive_back.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativecalendars_src_img_down.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativecalendars_src_img_down.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_chat.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_chat.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_assets_icons_checksmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_assets_icons_checksmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_profile.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_profile.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_drawer_menu.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_drawer_menu.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_tabbar_pages.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_tabbar_pages.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_login.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_login.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativecalendars_src_img_down.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativecalendars_src_img_down.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_components_floatingbutton_gradient.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_components_floatingbutton_gradient.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativecalendars_src_calendar_img_previous.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativecalendars_src_calendar_img_previous.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_login_imagebackground.jpeg.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_login_imagebackground.jpeg"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_evadesign_eva_themes_dark.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_evadesign_eva_themes_dark.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativecalendars_src_img_down.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativecalendars_src_img_down.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativecalendars_src_img_up.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativecalendars_src_img_up.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher_adaptive_fore.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_adaptive_fore.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_assets_images_icons_arrowback.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/assets_images_icons_arrowback.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_assets_images_tabbar_home.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/assets_images_tabbar_home.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_assets_images_gradient.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_assets_images_gradient.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_assets_images_tabbar_components.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/assets_images_tabbar_components.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_assets_images_tabbar_grids.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/assets_images_tabbar_grids.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigation_stack_src_views_assets_backiconmask.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigation_stack_src_views_assets_backiconmask.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_drawer_settings.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_drawer_settings.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_components_stackaggregator_assets_arrowdown.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_components_stackaggregator_assets_arrowdown.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_assets_images_tabbar_calendar.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/assets_images_tabbar_calendar.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativecalendars_src_calendar_img_previous.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativecalendars_src_calendar_img_previous.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_drawer_home.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_drawer_home.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_tabbar_calendar.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_tabbar_calendar.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_assets_icons_plussmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_assets_icons_plussmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_chart.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_chart.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativecalendars_src_img_down.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativecalendars_src_img_down.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_assets_icons_search.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_assets_icons_search.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipside.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_atrules.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_atrules.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativecalendars_src_img_up.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativecalendars_src_img_up.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_assets_images_tabbar_grids.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/assets_images_tabbar_grids.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_assets_icons_checksmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_assets_icons_checksmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativecalendars_src_img_down.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativecalendars_src_img_down.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_tabbar_home.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_tabbar_home.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_legacy.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_legacy.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_tabbar_components.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_tabbar_components.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_assets_icons_check.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_assets_icons_check.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_evadesign_eva_themes_light.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_evadesign_eva_themes_light.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher_adaptive_back.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-hdpi/ic_launcher_adaptive_back.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_assets_icons_check.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_assets_icons_check.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_assets_icons_check.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_assets_icons_check.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_pages_bagis_developer.jpeg.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_pages_bagis_developer.jpeg"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativecalendars_src_calendar_img_previous.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativecalendars_src_calendar_img_previous.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativecalendars_src_calendar_img_next.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativecalendars_src_calendar_img_next.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_assets_icons_settings.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_assets_icons_settings.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnavigation_stack_src_views_assets_backicon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnavigation_stack_src_views_assets_backicon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_drawer_components.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_drawer_components.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativecalendars_src_img_up.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativecalendars_src_img_up.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_tabbar_grids.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_tabbar_grids.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativecalendars_src_img_up.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativecalendars_src_img_up.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_assets_icons_x.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_assets_icons_x.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_drawer_grids.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_drawer_grids.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_assets_icons_checksmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_assets_icons_checksmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_drawer_calendar.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_drawer_calendar.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativeuilib_src_assets_icons_check.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativeuilib_src_assets_icons_check.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_assets_icons_search.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_assets_icons_search.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_assets_icons_checksmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_assets_icons_checksmall.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_assets_icons_search.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_assets_icons_search.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable_background_splash.xml.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/drawable/background_splash.xml"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_components_hint_assets_hinttipmiddle.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_components_overlay_assets_gradientoverlay.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_assets_images_topbarbg.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/assets_images_topbarbg.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_assets_images_tabbar_components.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/assets_images_tabbar_components.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_decode.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_decode.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_assets_images_tabbar_pages.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/assets_images_tabbar_pages.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher_adaptive_back.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xhdpi/ic_launcher_adaptive_back.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigation_drawer_src_views_assets_toggledrawericon.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_assets_images_tabbar_pages.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/assets_images_tabbar_pages.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_node_modules_reactnativeuilib_src_components_stackaggregator_assets_arrowdown.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/node_modules_reactnativeuilib_src_components_stackaggregator_assets_arrowdown.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_assets_icons_chevronright.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_assets_icons_chevronright.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_assets_images_tabbar_calendar.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/assets_images_tabbar_calendar.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativesvg_node_modules_domserializer_foreignnames.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_reactnativesvg_node_modules_domserializer_foreignnames.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_assets_icons_x.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_assets_icons_x.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxhdpi_assets_images_tabbar_home.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxhdpi/assets_images_tabbar_home.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_entypo.json.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_entypo.json"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativecalendars_src_calendar_img_previous.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativecalendars_src_calendar_img_previous.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xhdpi_node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xhdpi/node_modules_reactnativeuilib_src_components_colorpicker_assets_transparentswatch_transparentswatch.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnativeuilib_src_components_colorpicker_assets_gradient.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativeuilib_src_components_colorpicker_assets_gradient.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-xxxhdpi_node_modules_reactnativecalendars_src_calendar_img_next.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-xxxhdpi/node_modules_reactnativecalendars_src_calendar_img_next.png"
+    },
+    {
+        "merged": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/intermediates/res/merged/release/drawable-hdpi_node_modules_reactnativeuilib_src_assets_icons_plussmall.png.flat",
+        "source": "/Users/mehmeti/Desktop/git component/heskisayol/android/app/build/generated/res/react/release/drawable-hdpi/node_modules_reactnativeuilib_src_assets_icons_plussmall.png"
+    }
+]

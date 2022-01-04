@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Heskisayol.iml" filepath="$PROJECT_DIR$/.idea/modules/Heskisayol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1923756152/Heskisayol.@react-native-async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/1923756152/Heskisayol.@react-native-async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Heskisayol.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Heskisayol.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1923756152/Heskisayol.react-native-async-storage_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/1923756152/Heskisayol.react-native-async-storage_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1052304076/Heskisayol.react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/-1052304076/Heskisayol.react-native-community_masked-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-10310168/Heskisayol.react-native-community_progress-bar-android.iml" filepath="$PROJECT_DIR$/.idea/modules/-10310168/Heskisayol.react-native-community_progress-bar-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/932365202/Heskisayol.react-native-community_progress-view.iml" filepath="$PROJECT_DIR$/.idea/modules/932365202/Heskisayol.react-native-community_progress-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-223186902/Heskisayol.react-native-community_toolbar-android.iml" filepath="$PROJECT_DIR$/.idea/modules/-223186902/Heskisayol.react-native-community_toolbar-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1132396835/Heskisayol.react-native-document-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/-1132396835/Heskisayol.react-native-document-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-36677085/Heskisayol.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-36677085/Heskisayol.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/583274037/Heskisayol.react-native-linear-gradient.iml" filepath="$PROJECT_DIR$/.idea/modules/583274037/Heskisayol.react-native-linear-gradient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/92052748/Heskisayol.react-native-localize.iml" filepath="$PROJECT_DIR$/.idea/modules/92052748/Heskisayol.react-native-localize.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1301891632/Heskisayol.react-native-payments.iml" filepath="$PROJECT_DIR$/.idea/modules/1301891632/Heskisayol.react-native-payments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2072693809/Heskisayol.react-native-pdf.iml" filepath="$PROJECT_DIR$/.idea/modules/-2072693809/Heskisayol.react-native-pdf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-170444263/Heskisayol.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/-170444263/Heskisayol.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-235571764/Heskisayol.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-235571764/Heskisayol.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/220685540/Heskisayol.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/220685540/Heskisayol.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-96749265/Heskisayol.react-native-splash-screen.iml" filepath="$PROJECT_DIR$/.idea/modules/-96749265/Heskisayol.react-native-splash-screen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/76656449/Heskisayol.react-native-svg.iml" filepath="$PROJECT_DIR$/.idea/modules/76656449/Heskisayol.react-native-svg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2104076435/Heskisayol.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/2104076435/Heskisayol.react-native-vector-icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-630132644/Heskisayol.rn-fetch-blob.iml" filepath="$PROJECT_DIR$/.idea/modules/-630132644/Heskisayol.rn-fetch-blob.iml" />
+    </modules>
+  </component>
+</project>
