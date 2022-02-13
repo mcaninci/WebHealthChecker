@@ -1,11 +1,12 @@
-import {ALL_USERS, LOGIN_SUCCESS,LOGOUT_SUCCESS, DONATE_SUCCESS} from '../actions/types';
+import {ALL_USERS, LOGIN_SUCCESS,LOGOUT_SUCCESS, DONATE_SUCCESS,LOAD_USER} from '../actions/types';
 
 const intialState = {
   isAuthenticated: false,
   user: null,
+  userDetail:null,
   allUsers: [],
   myID: null,
-  donate: false,
+
 };
 
 export default (state = intialState, {payload, type}) => {
@@ -27,6 +28,12 @@ export default (state = intialState, {payload, type}) => {
         ...state,
         ...payload,
         donate: true,
+      };
+      case LOAD_USER:  
+      return {
+        ...state,
+        ...payload,
+        isAuthenticated: true
       };
     case ALL_USERS:
       return {

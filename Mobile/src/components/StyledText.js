@@ -78,6 +78,6 @@ const styles = StyleSheet.create({
     textDecorationLine: 'line-through',
   },
   white: {
-    color: '#50ad33',
+    color: '#8290a6',
   },
 });

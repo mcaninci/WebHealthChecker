@@ -1,65 +1,78 @@
-import { LOGIN_SUCCESS,LOGOUT_SUCCESS, DONATE_SUCCESS } from './types';
+import { LOGIN_SUCCESS, LOGOUT_SUCCESS, LOAD_USER } from './types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const login = ({ hescode,asikarti,hescodeSS}) => async (dispatch) => {
-  if (hescode!="" ||hescodeSS!=null ) {
-    dispatch({
-      type: LOGIN_SUCCESS,
-      payload: { user:{
-        name: 'user_' + ID(),
-        uid: 'id' + ID(),
-        hescode,
-        asikarti,hescodeSS
+export const login = ({ email, password, token }) => async (dispatch) => {
 
-      }}
-    });
+  dispatch({
+    type: LOGIN_SUCCESS,
+    payload: {
+      user: {
+        token: token,
+        email: email,
+        pass: password  
+      }
+    }
+  });
 
-    dispatch(setUser(hescode,asikarti,hescodeSS));
-  }
+  dispatch(setUser(token, email, password));
 
 
 };
 
 
+export const setUserDetail = (userobject) => async (dispatch) => {
+
+  dispatch({
+    type: LOAD_USER,
+    payload: {userDetail:userobject }
+  });
+
+
+
+
+
+};
+
+export const GetToken =  async () => {
+  const token = await AsyncStorage.getItem('token');
+  return  token||"null";
+}; 
+
 export const donate = () => async (dispatch) => {
 
   dispatch({
-    type: DONATE_SUCCESS, payload: { }
+    type: DONATE_SUCCESS, payload: {}
   });
-  };
+};
 
 export const logout = () => async (dispatch) => {
 
   AsyncStorage.clear();
   dispatch({
     type: LOGOUT_SUCCESS,
-    payload: { user:{
-      name: undefined,
-      uid: undefined,
-      hescode:undefined
-
-    }}
+    payload: {
+      user: null
+    }
   });
-  };
+};
 
-export const setUser = (hescode, asikarti,hescodeSS) => async (dispatch) => {
+export const setUser = (token, email, password) => async (dispatch) => {
 
-await AsyncStorage.setItem('@hescode',hescode);
-await AsyncStorage.setItem('@asikarti',asikarti.toString()??"".toString());
-await AsyncStorage.setItem('@hescodeSS',hescodeSS.toString()??"".toString());
+  await AsyncStorage.setItem('@token', token).toString() ?? "".toString();
+  await AsyncStorage.setItem('@email', email.toString() ?? "".toString());
+  await AsyncStorage.setItem('@password', password.toString() ?? "".toString());
 };
 
 // Load a user from async storage 
-export const loadUser = () => async (dispatch) => { 
+export const loadUser = () => async (dispatch) => {
 
- const hescode= await AsyncStorage.getItem('@hescode');
- const asikartistr=  await AsyncStorage.getItem('@asikarti');
- const asikarti=  JSON.stringify(asikartistr);
- const hescodeSSstr=  await AsyncStorage.getItem('@hescodeSS');
- const hescodeSS=  JSON.stringify(hescodeSSstr);
- if(hescode || hescodeSS ){
-dispatch(login({ hescode, asikarti,hescodeSS }) );
- }
+  const token = await AsyncStorage.getItem('@token');
+  const email = await AsyncStorage.getItem('@email');
+  const password = await AsyncStorage.getItem('@password');
+
+  if (token || email || password) {
+    dispatch(login({ email, password, token }));
+  }
 
 };
 

@@ -18,6 +18,10 @@ const blueVersion = {
   black: '#000000',
   green: '#6DD0A3',
   yellow: '#ffc247',
+  headerColor: '#000000',
+  tabColor:'#000000',
+  tabIconColor:'#ffffff',
+  tabIconFocusColor:'#54CBF6'
 };
 
 export default blueVersion;
