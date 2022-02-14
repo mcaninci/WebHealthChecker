@@ -5,14 +5,9 @@
   "requires_arc": true,
   "license": "MIT",
   "homepage": "https://github.com/naoufal/react-native-payments",
-  "authors": {
-    "name": "Naoufal Kadhom & Freeman Industries"
-  },
+  "authors": "Naoufal Kadhom & Freeman Industries",
   "source": {
-    "git": {
-      "type": "git",
-      "url": "git+https://github.com/naoufal/react-native-payments.git"
-    }
+    "git": "https://github.com/naoufal/react-native-payments"
   },
   "source_files": "ios/**/*.{h,m}",
   "platforms": {

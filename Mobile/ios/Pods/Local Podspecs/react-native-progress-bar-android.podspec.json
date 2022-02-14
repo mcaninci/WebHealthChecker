@@ -3,10 +3,7 @@
   "version": "1.0.4",
   "summary": "Progress Bar component for React Native",
   "license": "MIT",
-  "authors": {
-    "name": "Wagner Maciel",
-    "email": "wagnermaciel@google.com"
-  },
+  "authors": "Wagner Maciel <wagnermaciel@google.com>",
   "homepage": "https://github.com/react-native-community/react-native-progress-bar-android#readme",
   "description": "Progress Bar component for React Native",
   "platforms": {
