@@ -5,138 +5,73 @@ import UrlList from './UrlList';
 const listData = [
   {
     id: 1,
-    brand: 'Citizen',
-    title: 'CITIZEN ECO-DRIVE',
-    subtitle: 'Limited Edition',
-    price: '$129.99',
-    badge: 'NEW',
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image:
-      'https://reactnativestarter.com/demo/images/city-sunny-people-street.jpg',
+    
+    url: 'www.google.com',
+    scheculetime: 'Tue Feb 15 2022 12:35:15 GMT+0300 (GMT+03:00)',
+    scheculetimeText:"12:35 per day"
+    
   },
   {
     id: 2,
-    brand: 'Weeknight',
-    title: 'NEXT-LEVEL WEAR',
-    subtitle: 'Office, prom or special parties is all dressed up',
-    price: '$29.99',
-    priceFrom: true, badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-26549.jpg',
+    url: 'www.google2.com',
+    scheculetime: 'Tue Feb 15 2022 23:57:15 GMT+0300 (GMT+03:00)',
+    scheculetimeText:"23:57 per day"
   },
   {
     id: 3,
-    brand: 'Mad Perry',
-    title: 'CITIZEN ECO-DRIVE',
-    subtitle: 'Office, prom or special parties is all dressed up',
-    price: '$29.99',
-    priceFrom: true,
-    badge: 'SALE',
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-30360.jpg',
+    url: 'www.google4.com',
+    scheculetime: 'Tue Feb 15 2022 12:57:15 GMT+0300 (GMT+03:00)',
+    scheculetimeText:"12:57 per day"
   },
   {
     id: 4,
-    brand: 'Citizen',
-    title: 'CITIZEN ECO-DRIVE',
-    subtitle: 'Limited Edition',
-    price: '$129.99',
-    badge: 'NEW',
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-37839.jpg',
+    url: 'www.google4.com',
+    scheculetime: 'Tue Feb 15 2022 15:57:15 GMT+0300 (GMT+03:00)',
+    scheculetimeText:"15:57 per day"
   },
   {
     id: 5,
-    brand: 'Weeknight',
-    title: 'NEXT-LEVEL WEAR',
-    subtitle: 'Office, prom or special parties is all dressed up',
-    price: '$29.99',
-    priceFrom: true,
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-69212.jpg',
-  },
-  {
-    id: 6,
-    brand: 'Mad Perry',
-    title: 'CITIZEN ECO-DRIVE',
-    subtitle: 'Office, prom or special parties is all dressed up',
-    price: '$29.99',
-    priceFrom: true,
-    badge: 'SALE',
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-108061.jpg',
-  },
-  {
-    id: 7,
-    brand: 'Citizen',
-    title: 'CITIZEN ECO-DRIVE',
-    subtitle: 'Limited Edition',
-    price: '$129.99',
-    badge: 'NEW',
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-126371.jpg',
-  },
-  {
-    id: 8,
-    brand: 'Weeknight',
-    title: 'NEXT-LEVEL WEAR',
-    subtitle: 'Office, prom or special parties is all dressed up',
-    price: '$29.99',
-    priceFrom: true,
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-165888.jpg',
-  },
-  {
-    id: 9,
-    brand: 'Mad Perry',
-    title: 'CITIZEN ECO-DRIVE',
-    subtitle: 'Office, prom or special parties is all dressed up',
-    price: '$29.99',
-    priceFrom: true,
-    badge: 'SALE',
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-167854.jpg',
-  },
-  {
-    id: 10,
-    brand: 'Citizen',
-    title: 'CITIZEN ECO-DRIVE',
-    subtitle: 'Limited Edition',
-    price: '$129.99',
-    badge: 'NEW',
-    badgeColor: [{value: "#ee1f78",
-       description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-173427.jpg',
-  },
-  {
-    id: 11,
-    brand: 'Weeknight',
-    title: 'NEXT-LEVEL WEAR',
-    subtitle: 'Office, prom or special parties is all dressed up',
-    price: '$29.99',
-    priceFrom: true,
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-175696.jpg',
-  },
-  {
-    id: 12,
-    brand: 'Mad Perry',
-    title: 'CITIZEN ECO-DRIVE',
-    subtitle: 'Office, prom or special parties is all dressed up',
-    price: '$29.99',
-    priceFrom: true,
-    badge: 'SALE',
-    badgeColor: [{value: "#ee1f78",
-    description: "pink"}],
-    image: 'https://reactnativestarter.com/demo/images/pexels-photo-175733.jpg',
-  },
+    url: 'www.google5.com',
+    scheculetime: 'Tue Feb 15 2022 16:57:15 GMT+0300 (GMT+03:00)',
+    scheculetimeText:"16:57 per day"
+    },
+    {
+      id: 6,
+      url: 'www.google4.com',
+      scheculetime: 'Tue Feb 15 2022 12:57:15 GMT+0300 (GMT+03:00)',
+      scheculetimeText:"12:57 per day"
+    },
+    {
+      id: 7,
+      url: 'www.google4.com',
+      scheculetime: 'Tue Feb 15 2022 15:57:15 GMT+0300 (GMT+03:00)',
+      scheculetimeText:"15:57 per day"
+    },
+    {
+      id: 8,
+      url: 'www.google5.com',
+      scheculetime: 'Tue Feb 15 2022 16:57:15 GMT+0300 (GMT+03:00)',
+      scheculetimeText:"16:57 per day"
+      },
+      {
+        id: 9,
+        url: 'www.google4.com',
+        scheculetime: 'Tue Feb 15 2022 12:57:15 GMT+0300 (GMT+03:00)',
+        scheculetimeText:"12:57 per day"
+      },
+      {
+        id: 10,
+        url: 'www.google4.com',
+        scheculetime: 'Tue Feb 15 2022 15:57:15 GMT+0300 (GMT+03:00)',
+        scheculetimeText:"15:57 per day"
+      },
+      {
+        id: 11,
+        url: 'www.google5.com',
+        scheculetime: 'Tue Feb 15 2022 16:57:15 GMT+0300 (GMT+03:00)',
+        scheculetimeText:"16:57 per day"
+        },
+  
 ];
 
 export default compose(

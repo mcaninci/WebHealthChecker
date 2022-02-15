@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   View,
   Image,
   Linking,
   Dimensions,
+  Alert,
   TouchableOpacity,
   Platform
 } from 'react-native';
@@ -15,23 +16,20 @@ import {
   CheckBox,
   Input,
   useStyleSheet,
-  Icon
+  Icon, Divider
 } from '@ui-kitten/components';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import { ImageOverlay } from '../../../../components/image-overlay';
-import { SocialIcon } from 'react-native-elements';
-import QRCode from 'react-native-qrcode-svg';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { ProfileAvatar } from '../../../../components/ProfileAvatar';
+
 import { userGet } from '../../../../services/api/users';
 // const verifed = require('../../../../components/iconsvg/verifiedimg.png');
 // const shareios = require('../../../../components/iconsvg/shareios.png');
 // const shareandroid = require('../../../../components/iconsvg/shareandroid.png');
-import {
-  Linkedin, Instagram, TwitterIcon, PersonIcon, PlusIcon, EmailIcon, EyeIcon, EyeOffIcon, IdentityIcon, VerifiedIcon
-} from '../../../../components/icons';
 
-import { captureRef } from 'react-native-view-shot';
-import Share from 'react-native-share';
+
+
 
 import { login, setUserDetail } from '../../../../redux/actions/authActions';
 
@@ -40,30 +38,21 @@ export default function SaveUrlView(props) {
   const auth = useSelector((state) => { return state.auth; });
   const { isAuthenticated, user } = auth ? auth : { "isAuthenticated": false, user: {} };
   // const [accountIcon, setAccountIcon] = React.useState(require('../../../../../assets/images/pages/identity/diamond.png'));
-  const [userName, setUserName] = React.useState();
-  const [email, setEmail] = React.useState();
+
   const [userData, setuserData] = React.useState({});
-  const [userImg, setuserImg] = React.useState({});
+
   const dispatch = useDispatch();
-  const identityview = useRef();
+ 
+ 
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('time');
+  const [show, setShow] = useState(false);
 
-  const shareImage = async () => {
-    console.log('share girdi');
-    try {
-      debugger;
-      const uri = await captureRef(identityview, {
-        format: 'png',
-        quality: 0.8,
-      });
-      console.log('uri gelmeli');
-      console.log('uri', uri);
-      const shareResponse = await Share.open({ url: uri });
-      console.log('shareResponse', shareResponse);
-    } catch (error) {
-      console.log('error', error);
-    }
+  const useInputState = (initialValue = '') => {
+    const [urls, setURLS] = React.useState(initialValue);
+    return { urls, onChangeText: setURLS };
   };
-
+  const multilineInputState = useInputState();
 
   const getUserDetail = () => {
     //burası loginden dönen toke ve hashid ile yapılacak
@@ -95,7 +84,7 @@ export default function SaveUrlView(props) {
     // //       }
     // //       dispatch(setUserDetail(userobject));
     // //       setuserData(userobject);
-        
+
 
     // //     }
     // //   } else {
@@ -107,61 +96,131 @@ export default function SaveUrlView(props) {
 
   useEffect(() => {
     if (Object.getOwnPropertyNames(userData).length == 0) {
-     // getUserDetail();
+      // getUserDetail();
 
     }
 
   }, [userData]);
 
-  // if (user) {
-  //   if (user.token && (!user.detail || user.detail == null)) {
 
-  //    // getUserDetail();
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
 
-  //   }
-  //   else
-  //   //  props.navigation && props.navigation.navigate('Login');
-  // }
+  const saveUrls=()=>{
+    if (multilineInputState.urls== ""|| multilineInputState.urls==undefined){
+    Alert.alert(
+      "Please enter web site urls",
+    );
+  }
+  else {
+    Alert.alert(
+      "web site urls"+JSON.stringify(multilineInputState.urls)+" datetime "+date
+    );
+  }
+    
+  }
+
+  const showMode = (currentMode) => {
+    if (show) {
+      setShow(false);
+    }
+    else {
+      setShow(true);
+    }
+
+    setMode(currentMode);
+  };
+
+
+  const showTimepicker = () => {
+    showMode('time');
+  };
+
 
 
 
   return (
-    <View ref={identityview} style={{ flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:'transparent' }}>
-      {/* <ImageOverlay
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' }}>
+      <ImageOverlay
         style={{ width: '100%', height: '100%' }}
-        source={require('../../../../../assets/images/backgrounds/image-background.jpeg')}> */}
+        source={require('../../../../../assets/images/backgrounds/image-background.jpeg')}>
 
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={styles.headerContainer}>
+
+            <Text style={styles.Urltext}> Web Site Urls:</Text>
+            <Input style={styles.urlinput}
+           
+              placeholder='www.websiteurl.com;www.websiteurl.com'
+              multiline={true}
+              textStyle={{ minHeight: 60 ,maxHeight:120}}
+              {...multilineInputState}
+            />
+
+          </View>
+          <View style={styles.container}>
+            <View style={styles.container}>
+              <Text style={styles.Urltext}>Selected Checker Schedule Time : {date.getHours() + ":" + date.getMinutes()}</Text>
+              <View style={styles.container}>
+                {show && (
+                  <DateTimePicker
+                    testID="dateTimePicker"
+                    value={date}
+                    mode={mode}
+                    is24Hour={true}
+                    display="spinner"
+                    dateFormat="dd-MM-yyyy HH:mm"
+                    onChange={onChange}
+                    themeVariant="light"
+                    style={{ backgroundColor: 'white', width: 200, height: 200, marginBottom: 10 }}
+                  />
+                )}
+                <Button style={styles.signInButton}
+                  onPress={showTimepicker} >
+                  Set Schecule Time
+                </Button>
+                <Text style={styles.Urltext}>These URLs are checked every day at {date.getHours() + ":" + date.getMinutes()}  by the web health checker.</Text>
+
+              </View>
 
 
-    <Text> Save URL</Text>   
+            </View>
 
-       
+
+            <Button style={styles.signInButton} onPress={saveUrls} > 
+              Save Urls
+            </Button>
+            <Divider style={{ backgroundColor: 'white', marginTop: 10, height: 5 }} />
+          </View>
+
+
         </View>
-     
-      {/* </ImageOverlay> */}
+
+
+      </ImageOverlay>
     </View>
   );
 }
 
 
 const styles = StyleService.create({
+
   container: {
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginTop: 25,
   },
-  pdf: {
-    flex: 1,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  },
+
   signInButton: {
     marginHorizontal: 16,
     minWidth: 300,
-    backgroundColor: '#8290a6'
+    alignItems: 'center'
   },
+
   headerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -169,64 +228,17 @@ const styles = StyleService.create({
     maxHeight: 176,
     marginTop: 15,
     flex: 1,
-    flexDirection: 'row',
     justifyContent: 'space-between'
   },
-  profileAvatar: {
-    width: 150,
-    height: 150,
-    borderRadius: 1,
-     overflow: 'hidden',
-    alignSelf: 'center',
-   backgroundColor:'gray',
- 
-    overlayColor:'transparent'
+  Urltext: {
+    color: 'white', justifyContent: 'center', alignItems: 'center',
+    marginTop: 40, maxWidth: 300,
   },
+  urlinput: {
+    minWidth: 250,
+    maxWidth: 300,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 
-  formContainer: {
-    flex: 1,
-    paddingTop: 22,
-    paddingHorizontal: 16,
-  },
-  formInput: {
-    marginTop: 16,
-  },
-
-  tabBarIcon: {
-    width: 45,
-    height: 45,
-    marginBottom: 15,
-    tintColor: 'black',
-  },
-  tabBarIconFocused: {
-    tintColor: '#00acee',
-  },
-  shareIcon: {
-    width: 32,
-    height: 32,
-    marginLeft: 15,
-    tintColor: 'black',
-  },
-  shareIconFocused: {
-    tintColor: 'white',
-  }
-  , textName: {
-    margin: 20,
-    fontWeight: 'bold',
-    fontSize: 25,
-    color: 'white'
-  }
-  , textDesc: {
-    margin: 5,
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: 'white'
-  },
-  textSub: {
-    fontWeight: 'bold',
-    color: 'white',
-    fontSize: 12,
-    marginTop: 8,
-    marginRight: 5
-  }
 });

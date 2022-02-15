@@ -1,7 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 import UrlUpdate from '../../business/UrlUpdate/UrlUpdateViewContainer';
-import Monitoring from '../../business/SaveUrl/SaveUrlViewContainer';
+import UrlMonitoringDetail from '../../business/UrlMonitoringDetail/UrlMonitoringDetailViewContainer';
+
+
 
 import TabNavigator from './MainTabNavigator';
 import LoginScreen from '../../authenticationAndAuthorization/login/LoginViewContainer';
@@ -45,6 +47,17 @@ const StackNavigationData = [
   {
     name: 'UrlUpdate',
     component: UrlUpdate,
+    headerLeft: headerLeftComponent,
+    headerBackground: { source: headerBackground },
+    headerTitleStyle: {
+      fontFamily: fonts.primaryRegular,
+      color: colors.white,
+      fontSize: 18,
+    }
+  },
+  {
+    name: 'UrlMonitoringDetail',
+    component: UrlMonitoringDetail,
     headerLeft: headerLeftComponent,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {

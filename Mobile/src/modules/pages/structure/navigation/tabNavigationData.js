@@ -1,8 +1,8 @@
 
 import SaveUrl from '../../business/SaveUrl/SaveUrlViewContainer';
 import UrlList from '../../business/UrlList/UrlListViewContainer';
-import Monitoring from '../../business/SaveUrl/SaveUrlViewContainer';
-import UrlUpdate from '../../business/UrlUpdate/UrlUpdateViewContainer';
+import Monitoring from '../../business/UrlMonitoringList/UrlMonitoringViewContainer';
+
 
 //import EditIcon from '@material-ui/icons/Edit';
 //import EditIcon from '../../../../../assets/icons/user.png';

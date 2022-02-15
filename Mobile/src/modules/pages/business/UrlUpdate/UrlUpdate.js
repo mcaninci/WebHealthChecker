@@ -1,125 +1,122 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { ImageBackground, Platform, View } from 'react-native';
+import { View, Alert } from 'react-native';
 import {
   Button,
   Input,
-  Layout,
-  Radio,
-  RadioGroup,
   StyleService,
   Text,
   useStyleSheet,
+  Divider
 } from '@ui-kitten/components';
 
+import { ImageOverlay } from '../../../../components/image-overlay';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
+export default function UrlUpdate(props) {
+  let urldata = props.route.params.itemDatail;
 
-export default function UrlUpdate (props)  {
-  let product =props.route.params.itemDatail;
-
-  const [comment, setComment] = React.useState();
-  const [selectedColorIndex, setSelectedColorIndex] = React.useState();
   const styles = useStyleSheet(themedStyles);
-  const [rating, setRating] = React.useState(product.rating||3);
+  const [url, setUrl] = useState(urldata.url || '');
+  const [date, setDate] = useState(new Date(urldata.scheculetime));
+  const [mode, setMode] = useState('time');
+  const [show, setShow] = useState(false);
 
-  
+  const showMode = (currentMode) => {
+    if (show) {
+      setShow(false);
+    }
+    else {
+      setShow(true);
+    }
 
-  const onBuyButtonPress = () => {
-    navigation && navigation.navigate('Payment');
+    setMode(currentMode);
   };
 
-  const onAddButtonPress = () => {
-    navigation && navigation.navigate('ShoppingCart');
+  const showTimepicker = () => {
+    showMode('time');
   };
 
-  const renderColorItem = (color, index) => (
-    <Radio
-      key={index}
-      style={styles.colorRadio}
-    >
-      {evaProps => <Text {...evaProps} style={{ color: color.value, marginLeft: 10, }}>{color.description.toUpperCase()}</Text>}
-    </Radio>
-  );
-  const GridsDetailScreen = () => (
-    <Layout style={styles.header}>
-      <ImageBackground
-        style={styles.image}
-        source={{ uri: product.image }}
-      />
-      <Layout
-        style={styles.detailsContainer}
-        level='1'>
-        <Text
-          category='h6'>
-          {product.title}
-        </Text>
-        <Text
-          style={styles.subtitle}
-          appearance='hint'
-          category='p2'>
-          {product.subtitle}
-        </Text>
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
 
-        <Text
-          style={styles.price}
-          category='h4'>
-          {product.price}
-        </Text>
-        <Text
-          style={styles.description}
-          appearance='hint'>
-          {product.description}
-        </Text>
-        <Text
-          style={styles.sectionLabel}
-          category='h6'>
-          Size:
-        </Text>
-        <Text
-          style={styles.size}
-          appearance='hint'>
-          {product.size}
-        </Text>
-        <Text
-          style={styles.sectionLabel}
-          category='h6'>
-          Color:
-        </Text>
-        <RadioGroup
-          style={styles.colorGroup}
-          selectedIndex={selectedColorIndex}
-          onChange={setSelectedColorIndex}>
-          {product.badgeColor.map(renderColorItem)}
-        </RadioGroup>
-        <View style={styles.actionContainer}>
-          <Button
-            style={styles.actionButton}
-            size='giant'
-            onPress={onBuyButtonPress}>
-            BUY
-          </Button>
-          <Button
-            style={styles.actionButton}
-            size='giant'
-            status='control'
-            onPress={onAddButtonPress}>
-            ADD TO BAG
-          </Button>
-        </View>
-      </Layout>
-      <Input
-        style={styles.commentInput}
-        label={evaProps => <Text {...evaProps} style={styles.commentInputLabel}>Comments</Text>}
-        placeholder='Write your comment'
-        value={comment}
-        onChangeText={setComment}
-      />
-    </Layout>
-  );
+  const updateURL = () => {
+    if (url == "" || url == undefined) {
+      Alert.alert(
+        "Please enter web site url",
+      );
+    }
+    else {
+      Alert.alert(
+        "web site urls" + JSON.stringify(url) + " datetime " + date
+      );
+    }
+
+  }
+
+
 
   return (
-    <View>
-      <GridsDetailScreen/>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' }}>
+      <ImageOverlay
+        style={{ width: '100%', height: '100%' }}
+        source={require('../../../../../assets/images/backgrounds/image-background.jpeg')}>
+
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={styles.headerContainer}>
+
+            <Text style={styles.Urltext}> Web Site Url:</Text>
+            <Input style={styles.urlinput}
+              onChangeText={(text) => setUrl(text)}
+              value={url}
+              placeholder='www.websiteurl.com;www.websiteurl.com'
+              multiline={false}
+            />
+
+          </View>
+          <View style={styles.container}>
+            <View style={styles.containerRow}>
+              <Text style={styles.Urltext}>Selected Checker Schedule Time : {date.getHours() + ":" + date.getMinutes()}</Text>
+              <View style={styles.containerRow} >
+                {show && (
+                  <DateTimePicker
+                    testID="dateTimePicker"
+                    dateFormat="dd-MM-yyyy HH:mm"
+                    value={date}
+                    mode={mode}
+                    is24Hour={true}
+                    display="spinner"
+                    onChange={onChange}
+                    themeVariant="light"
+                    style={{ backgroundColor: 'white', width: 200, height: 200, marginBottom: 10 }}
+                  />
+                )}
+                <Button style={styles.signInButton}
+                  onPress={showTimepicker} >
+                  Set Schecule Time
+                </Button>
+                <Text style={styles.Urltext}>This URL is checked every day at {date.getHours() + ":" + date.getMinutes()}  by the web health checker.</Text>
+
+              </View>
+
+
+            </View>
+
+
+            <Button style={styles.updateButton} onPress={updateURL} >
+              Update URL Detail
+            </Button>
+            <Divider style={{ backgroundColor: 'white', marginTop: 10, height: 5 }} />
+          </View>
+
+
+        </View>
+
+
+      </ImageOverlay>
     </View>
   );
 };
@@ -127,68 +124,48 @@ export default function UrlUpdate (props)  {
 const themedStyles = StyleService.create({
   container: {
     flex: 1,
-    backgroundColor: 'background-basic-color-2',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 5,
   },
-  commentList: {
-    flex: 1,
-    backgroundColor: 'transparent',
+  containerRow: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 5,
   },
-  header: {
-    marginBottom: 8,
-  },
-  image: {
-    height: 340,
-    width: '100%',
-  },
-  detailsContainer: {
-    paddingVertical: 24,
-    paddingHorizontal: 16,
-  },
-  subtitle: {
-    marginTop: 4,
-  },
-  price: {
-    position: 'absolute',
-    top: 24,
-    right: 16,
-  },
-  description: {
-    marginVertical: 16,
-  },
-  size: {
-    marginBottom: 16,
-  },
-  rateBar: {
-    alignSelf: 'center',
-    marginTop: 16,
-    marginBottom: 24,
-  },
-  colorGroup: {
-    flexDirection: 'row',
-    marginHorizontal: -8,
-  },
-  colorRadio: {
-    marginHorizontal: 8,
-  },
-  actionContainer: {
-    flexDirection: 'row',
-    marginHorizontal: -8,
-    marginTop: 24,
-  },
-  actionButton: {
-    flex: 1,
-    marginHorizontal: 8,
-  },
-  sectionLabel: {
-    marginVertical: 8,
-  },
-  commentInputLabel: {
-    fontSize: 16,
-    marginBottom: 8,
-    color: 'text-basic-color',
-  },
-  commentInput: {
+  
+  signInButton: {
     marginHorizontal: 16,
-    marginVertical: 24,
+    minWidth: 300,
+    alignItems: 'center',
   },
+  updateButton: {
+    marginHorizontal: 16,
+    minWidth: 300,
+    alignItems: 'center',
+    marginTop:80
+  },
+  headerContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: 176,
+    maxHeight: 176,
+    marginTop: 15,
+    flex: 1,
+    justifyContent: 'space-between'
+  },
+  Urltext: {
+    color: 'white', justifyContent: 'center', alignItems: 'center',
+    marginTop: 40, maxWidth: 300,
+    marginBottom:10
+  },
+  urlinput: {
+    minWidth: 250,
+    maxWidth: 300,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+
+
+
 });

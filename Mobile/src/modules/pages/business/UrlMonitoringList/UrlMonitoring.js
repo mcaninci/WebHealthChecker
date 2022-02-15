@@ -9,73 +9,27 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import { colors, fonts } from '../../styles';
+ import { colors, fonts } from '../../../../styles';
 
-import { RadioGroup, GridRow } from '../../components';
+import { RadioGroup, GridRow } from '../../../../components';
 
-export default class GridsScreen extends React.Component {
+export default class UrlMonitoring extends React.Component {
   _getRenderItemFunction = () =>
-    [this.renderRowOne, this.renderRowTwo, this.renderRowThree][
+    [this.UrlListItem][
       this.props.tabIndex
     ];
 
     _openArticle = itemDatail => {
-      this.props.navigation.navigate('Detail', {
+      this.props.navigation.navigate('UrlMonitoringDetail', {
         itemDatail,
       });
     };
   
 
-  renderRowOne = rowData => {
-    const cellViews = rowData.item.map(item => (
-      <TouchableOpacity key={item.id} onPress={() => this._openArticle(item)}>
-        <View style={styles.itemOneContainer}>
-          <View style={styles.itemOneImageContainer}>
-            <Image style={styles.itemOneImage} source={{ uri: item.image }} />
-          </View>
-          <View style={styles.itemOneContent}>
-            <Text style={styles.itemOneTitle} numberOfLines={1}>
-              {item.title}
-            </Text>
-            <Text
-              style={styles.itemOneSubTitle}
-              styleName="collapsible"
-              numberOfLines={3}
-            >
-              {item.subtitle}
-            </Text>
-            <Text style={styles.itemOnePrice} numberOfLines={1}>
-              {item.price}
-            </Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    ));
-    return (
-      <View key={rowData.item[0].id} style={styles.itemOneRow}>
-        {cellViews}
-      </View>
-    );
-  };
+ 
 
-  renderRowTwo = ({ item }) => (
-    <TouchableOpacity
-      key={item.id}
-      style={styles.itemTwoContainer}
-      onPress={() => this._openArticle(item)}
-    >
-      <View style={styles.itemTwoContent}>
-        <Image style={styles.itemTwoImage} source={{ uri: item.image }} />
-        <View style={styles.itemTwoOverlay} />
-        <Text style={styles.itemTwoTitle}>{item.title}</Text>
-        <Text style={styles.itemTwoSubTitle}>{item.subtitle}</Text>
-        <Text style={styles.itemTwoPrice}>{item.price}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-
-  renderRowThree = ({ item }) => (
-    <TouchableOpacity
+    UrlListItem = ({ item }) => (
+      <TouchableOpacity
       key={item.id}
       style={styles.itemThreeContainer}
       onPress={() => this._openArticle(item)}
@@ -83,30 +37,30 @@ export default class GridsScreen extends React.Component {
       <View style={styles.itemThreeSubContainer}>
         <Image source={{ uri: item.image }} style={styles.itemThreeImage} />
         <View style={styles.itemThreeContent}>
-          <Text style={styles.itemThreeBrand}>{item.brand}</Text>
-          <View>
-            <Text style={styles.itemThreeTitle}>{item.title}</Text>
+        
+          
+            <Text style={styles.itemThreeTitle}>{item.url}</Text>
             <Text style={styles.itemThreeSubtitle} numberOfLines={1}>
-              {item.subtitle}
+            Last Checked : {item.lastcheckDateText}
             </Text>
-          </View>
+        
           <View style={styles.itemThreeMetaContainer}>
-            {item.badge && (
+            {item.status && (
               <View
                 style={[
                   styles.badge,
-                  item.badge === 'NEW' && { backgroundColor: colors.green },
+                  item.responseCode ==200 && { backgroundColor: colors.green },
                 ]}
               >
                 <Text
-                  style={{ fontSize: 10, color: colors.white }}
+                  style={{ fontSize: 13, color: colors.white }}
                   styleName="bright"
                 >
-                  {item.badge}
+                  {item.status}
                 </Text>
               </View>
             )}
-            <Text style={styles.itemThreePrice}>{item.price}</Text>
+         
           </View>
         </View>
       </View>
@@ -114,22 +68,14 @@ export default class GridsScreen extends React.Component {
     </TouchableOpacity>
   );
 
+
   render() {
-    const groupedData =
-      this.props.tabIndex === 0
-        ? GridRow.groupByRows(this.props.data, 2)
-        : this.props.data;
+    const groupedData = this.props.data;
+    
 
     return (
       <View style={styles.container}>
-        <View style={{ height: 50 }}>
-          <RadioGroup
-            selectedIndex={this.props.tabIndex}
-            items={this.props.tabs}
-            onChange={this.props.setTabIndex}
-            underline
-          />
-        </View>
+       
         <FlatList
           keyExtractor={item =>
             item.id
