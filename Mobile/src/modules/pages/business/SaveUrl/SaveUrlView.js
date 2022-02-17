@@ -16,17 +16,16 @@ import {
   CheckBox,
   Input,
   useStyleSheet,
-  Icon, Divider
+  Icon, Divider, RadioGroup, Radio
 } from '@ui-kitten/components';
+import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { ImageOverlay } from '../../../../components/image-overlay';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { userGet } from '../../../../services/api/users';
-// const verifed = require('../../../../components/iconsvg/verifiedimg.png');
-// const shareios = require('../../../../components/iconsvg/shareios.png');
-// const shareandroid = require('../../../../components/iconsvg/shareandroid.png');
+
 
 
 
@@ -34,25 +33,27 @@ import { userGet } from '../../../../services/api/users';
 import { login, setUserDetail } from '../../../../redux/actions/authActions';
 
 export default function SaveUrlView(props) {
-
+  const netInfo = useNetInfo();
   const auth = useSelector((state) => { return state.auth; });
   const { isAuthenticated, user } = auth ? auth : { "isAuthenticated": false, user: {} };
-  // const [accountIcon, setAccountIcon] = React.useState(require('../../../../../assets/images/pages/identity/diamond.png'));
+
 
   const [userData, setuserData] = React.useState({});
 
   const dispatch = useDispatch();
- 
- 
+
+
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('time');
   const [show, setShow] = useState(false);
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
   const useInputState = (initialValue = '') => {
     const [urls, setURLS] = React.useState(initialValue);
     return { urls, onChangeText: setURLS };
   };
   const multilineInputState = useInputState();
+
 
   const getUserDetail = () => {
     //burası loginden dönen toke ve hashid ile yapılacak
@@ -94,12 +95,30 @@ export default function SaveUrlView(props) {
 
   }
 
+  checkConnectionandRegister = () => {
+    var breakFlag = false;
+    NetInfo.fetch().then(state => {
+      if (state.isConnected) {
+        getUserDetail();
+      }
+      else {
+          Alert.alert('Please check your internet connection and try again.', '', [{
+            text: 'Try again', onPress: () => {
+           
+                checkConnectionandRegister();
+              
+            }
+          }]);
+      }
+    });
+  }
+
   useEffect(() => {
     if (Object.getOwnPropertyNames(userData).length == 0) {
       // getUserDetail();
 
     }
-
+    checkConnectionandRegister();
   }, [userData]);
 
 
@@ -109,18 +128,18 @@ export default function SaveUrlView(props) {
     setDate(currentDate);
   };
 
-  const saveUrls=()=>{
-    if (multilineInputState.urls== ""|| multilineInputState.urls==undefined){
-    Alert.alert(
-      "Please enter web site urls",
-    );
-  }
-  else {
-    Alert.alert(
-      "web site urls"+JSON.stringify(multilineInputState.urls)+" datetime "+date
-    );
-  }
-    
+  const saveUrls = () => {
+    if (multilineInputState.urls == "" || multilineInputState.urls == undefined) {
+      Alert.alert(
+        "Please enter web site urls",
+      );
+    }
+    else {
+      Alert.alert(
+        "web site urls" + JSON.stringify(multilineInputState.urls) + " datetime " + date
+      );
+    }
+
   }
 
   const showMode = (currentMode) => {
@@ -130,8 +149,8 @@ export default function SaveUrlView(props) {
     else {
       setShow(true);
     }
-
-    setMode(currentMode);
+    var b =
+      setMode(currentMode);
   };
 
 
@@ -140,7 +159,7 @@ export default function SaveUrlView(props) {
   };
 
 
-
+  var btnextr = show ? { marginTop: 0 } : { marginTop: 120 };
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' }}>
@@ -153,47 +172,66 @@ export default function SaveUrlView(props) {
 
             <Text style={styles.Urltext}> Web Site Urls:</Text>
             <Input style={styles.urlinput}
-           
+
               placeholder='www.websiteurl.com;www.websiteurl.com'
               multiline={true}
-              textStyle={{ minHeight: 60 ,maxHeight:120}}
+              textStyle={{ minHeight: 60, maxHeight: 120 }}
               {...multilineInputState}
             />
-
+            <Text style={styles.Urltext}> Web Site Prefix Select:</Text>
+          </View>
+          <View style={styles.containerRow}>
+            <RadioGroup
+              selectedIndex={selectedIndex}
+              onChange={index => setSelectedIndex(index)}>
+              <Radio ><Text style={styles.radio}>Don't add prefix</Text> </Radio>
+              <Radio><Text style={styles.radio}> Auto add HTTP prefix</Text> </Radio>
+              <Radio><Text style={styles.radio}> Auto add HTTPS prefix</Text> </Radio>
+            </RadioGroup>
           </View>
           <View style={styles.container}>
-            <View style={styles.container}>
-              <Text style={styles.Urltext}>Selected Checker Schedule Time : {date.getHours() + ":" + date.getMinutes()}</Text>
-              <View style={styles.container}>
-                {show && (
-                  <DateTimePicker
-                    testID="dateTimePicker"
-                    value={date}
-                    mode={mode}
-                    is24Hour={true}
-                    display="spinner"
-                    dateFormat="dd-MM-yyyy HH:mm"
-                    onChange={onChange}
-                    themeVariant="light"
-                    style={{ backgroundColor: 'white', width: 200, height: 200, marginBottom: 10 }}
-                  />
-                )}
-                <Button style={styles.signInButton}
-                  onPress={showTimepicker} >
-                  Set Schecule Time
-                </Button>
-                <Text style={styles.Urltext}>These URLs are checked every day at {date.getHours() + ":" + date.getMinutes()}  by the web health checker.</Text>
-
-              </View>
 
 
+
+            <View style={styles.containerRow}>
+              {show && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  value={date}
+                  mode={mode}
+                  is24Hour={true}
+                  display="spinner"
+                  dateFormat="dd-MM-yyyy HH:mm"
+                  onChange={onChange}
+                  themeVariant="light"
+                  style={{ backgroundColor: 'white', width: 300, height: 120, marginBottom: 5 }}
+                />
+              )}
+            </View>
+            <View style={styles.containerRow}>
+              <Button style={styles.signInButton}
+                onPress={showTimepicker} >
+                Set Schecule Time
+              </Button>
+            </View>
+
+            <View style={[styles.containerRow, btnextr]}>
+              <Text style={styles.Urltext}>These URLs are checked every day at {date.getHours() + ":" + date.getMinutes()}  by the web health checker.</Text>
+              {/* // alignSelf : 'stretch'  */}
+              <Divider style={{ backgroundColor: 'white', marginTop: 30, height: 5 }} />
+              <Button style={styles.signInButton} onPress={saveUrls} >
+                Save Urls
+              </Button>
             </View>
 
 
-            <Button style={styles.signInButton} onPress={saveUrls} > 
-              Save Urls
-            </Button>
-            <Divider style={{ backgroundColor: 'white', marginTop: 10, height: 5 }} />
+
+
+
+
+
+
+
           </View>
 
 
@@ -214,6 +252,12 @@ const styles = StyleService.create({
     alignItems: 'center',
     marginTop: 25,
   },
+  containerRow: {
+
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 25,
+  },
 
   signInButton: {
     marginHorizontal: 16,
@@ -226,13 +270,16 @@ const styles = StyleService.create({
     alignItems: 'center',
     minHeight: 176,
     maxHeight: 176,
-    marginTop: 15,
+    marginTop: 10,
     flex: 1,
     justifyContent: 'space-between'
   },
   Urltext: {
     color: 'white', justifyContent: 'center', alignItems: 'center',
-    marginTop: 40, maxWidth: 300,
+    marginTop: 10, maxWidth: 300,
+  },
+  radio: {
+    color: 'white', justifyContent: 'center', alignItems: 'center'
   },
   urlinput: {
     minWidth: 250,

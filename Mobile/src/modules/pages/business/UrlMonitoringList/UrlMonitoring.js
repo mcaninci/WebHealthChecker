@@ -20,7 +20,7 @@ export default class UrlMonitoring extends React.Component {
     ];
 
     _openArticle = itemDatail => {
-      this.props.navigation.navigate('UrlMonitoringDetail', {
+      this.props.navigation.navigate('Url Monitoring Detail', {
         itemDatail,
       });
     };

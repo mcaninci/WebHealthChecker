@@ -20,7 +20,7 @@ export default class UrlList extends React.Component {
     ];
 
     _openArticle = itemDatail => {
-      this.props.navigation.navigate('UrlUpdate', {
+      this.props.navigation.navigate('Url Update', {
         itemDatail,
       });
     };
@@ -57,7 +57,7 @@ export default class UrlList extends React.Component {
               ? `${this.props.tabIndex}-${item.id}`
               : `${item[0] && item[0].id}`
           }
-          style={{ backgroundColor: colors.white, paddingHorizontal: 15 }}
+          style={{ backgroundColor: colors.black, paddingHorizontal: 15 }}
           data={groupedData}
           renderItem={this._getRenderItemFunction()}
         />
@@ -69,7 +69,7 @@ export default class UrlList extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.black,
   },
   tabsContainer: {
     alignSelf: 'stretch',
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 
   itemTwoContainer: {
     paddingBottom: 10,
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     marginVertical: 5,
 
   },
@@ -119,8 +119,8 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: '#133ff0',
-    opacity: 0.5,
+    backgroundColor: '#3366ff',
+    opacity: 0.8,
   
   },
  

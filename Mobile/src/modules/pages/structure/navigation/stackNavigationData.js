@@ -45,7 +45,7 @@ const StackNavigationData = [
 
   },
   {
-    name: 'UrlUpdate',
+    name: 'Url Update',
     component: UrlUpdate,
     headerLeft: headerLeftComponent,
     headerBackground: { source: headerBackground },
@@ -56,7 +56,7 @@ const StackNavigationData = [
     }
   },
   {
-    name: 'UrlMonitoringDetail',
+    name: 'Url Monitoring Detail',
     component: UrlMonitoringDetail,
     headerLeft: headerLeftComponent,
     headerBackground: { source: headerBackground },

@@ -17,8 +17,7 @@ import { colors, fonts } from '../../../../styles';
 
 import { captureRef } from 'react-native-view-shot';
 import Share from 'react-native-share';
-const shareios = require('../../../../components/iconsvg/shareios.png');
- const shareandroid = require('../../../../components/iconsvg/shareandroid.png');
+import { ShareAndroidIcon,ShareIOSIcon } from '../../../../components/icons';
 
 
 export default function UrlMonitoringDetail(props) {
@@ -94,10 +93,10 @@ export default function UrlMonitoringDetail(props) {
           Response Time: {urlitem.responseTime}
         </Text>
 
-
-        <Button style={styles.updateButton} onPress={shareImage} >
+        <Button  accessoryLeft={Platform.OS=="android"?ShareAndroidIcon:ShareIOSIcon} style={styles.share} onPress={shareImage} >
               Share Result
             </Button>
+   
       </Layout>
 
     </Layout>
@@ -106,6 +105,7 @@ export default function UrlMonitoringDetail(props) {
   return (
     <View ref={resultview}>
       <GridsDetailScreen />
+
     </View>
   );
 };
@@ -135,7 +135,12 @@ const themedStyles = StyleService.create({
   size: {
     marginBottom: 8,
   },
-
+  share: {
+    marginHorizontal: 16,
+    minWidth: 300,
+    marginTop:50,
+    alignItems: 'center'
+  },
 
   itemThreeMetaContainer: {
     flexDirection: 'row',
