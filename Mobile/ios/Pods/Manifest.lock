@@ -211,6 +211,8 @@ PODS:
   - React-jsinspector (0.63.3)
   - react-native-document-picker (3.4.0):
     - React
+  - react-native-netinfo (8.0.0):
+    - React-Core
   - react-native-payments (0.8.4):
     - Braintree (~> 4)
     - React
@@ -336,6 +338,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
+  - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-payments (from `../node_modules/react-native-payments`)
   - react-native-pdf (from `../node_modules/react-native-pdf`)
   - "react-native-progress-bar-android (from `../node_modules/@react-native-community/progress-bar-android`)"
@@ -409,6 +412,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-document-picker:
     :path: "../node_modules/react-native-document-picker"
+  react-native-netinfo:
+    :path: "../node_modules/@react-native-community/netinfo"
   react-native-payments:
     :path: "../node_modules/react-native-payments"
   react-native-pdf:
@@ -492,6 +497,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
   react-native-document-picker: d694111879537cec2c258a1dcd2243d9df746824
+  react-native-netinfo: ba4ea50d836c60580c59079233c400753fe5bcb6
   react-native-payments: 0cb00209f3b25a72d5b614554abf688e2cc53002
   react-native-pdf: ef641e79a6d550cfabe5d7ec1916799726514c43
   react-native-progress-bar-android: be43138ab7da30d51fc038bafa98e9ed594d0c40
