@@ -5,28 +5,43 @@ const userLogin =  (data,callback) => {
     const res =  request('login/signin', 'POST', data,callback);
     return  res;
 }
-const userGet =  (data,callback) => {
-    const res =  request('login/getuserbyhashcode', 'POST', data,callback);
-    return  res;
-}
-const userProfit =  (data,callback) => {
-    const res =  request('login/billingHashCode', 'POST', data,callback);
-    return  res;
-}
-const isLoggedIn =  () => {
-    const res =  request('isLoggedIn', 'GET');
-    return  res;
-}
-
-const userLogout =  (callback) => {
-    const res =  request('user/logout', 'POST',callback);
-    return  res;
-}
 
 const userRegister =  (data,callback) => {
     const res =  request('login/signup/', 'POST', data,callback);
     return  res;
 }
+
+const userLogout =  (callback) => {
+    const res =  request('login/logout', 'POST',callback);
+    return  res;
+}
+
+const saveUrl =  (callback) => {
+    const res =  request('url/save', 'POST',callback);
+    return  res;
+}
+
+const updateUrl =  (callback) => {
+    const res =  request('url/update', 'POST',callback);
+    return  res;
+}
+
+
+const getUrls =  (callback) => {
+    const res =  request('url/geturls', 'POST',callback);
+    return  res;
+}
+
+const getMonitoringList =  (callback) => {
+    const res =  request('monitoring/getmonitoringlist', 'POST',callback);
+    return  res;
+}
+
+const getMonitoringDetail =  (callback) => {
+    const res =  request('monitoring/getMonitoringdetail', 'POST',callback);
+    return  res;
+}
+
 
 // const getUsers = async () => {
 //     const res =  request('users', 'GET');
@@ -37,11 +52,14 @@ const userRegister =  (data,callback) => {
 
 
 export {
-    userGet,
+
     userLogin,
     userRegister,
     userLogout,
-    userProfit,
-    // getUsers,
-    isLoggedIn
+    saveUrl,
+    updateUrl,
+    getUrls,
+    getMonitoringList,
+    getMonitoringDetail
+  
 }

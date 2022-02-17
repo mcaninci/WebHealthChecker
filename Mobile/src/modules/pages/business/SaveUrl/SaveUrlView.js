@@ -55,9 +55,9 @@ export default function SaveUrlView(props) {
   const multilineInputState = useInputState();
 
 
-  const getUserDetail = () => {
-    //burası loginden dönen toke ve hashid ile yapılacak
-    // // userGet(user.token, res => {
+  const registerUser = () => {
+    //this method is used to register user information at server in background.It's a tempory login method.
+    // // userRegister(user.token, res => {
     // //   if (res.isSuccess) {
     // //     if (Object.getOwnPropertyNames(userData).length == 0) {
     // //       var userobject = {
@@ -99,7 +99,7 @@ export default function SaveUrlView(props) {
     var breakFlag = false;
     NetInfo.fetch().then(state => {
       if (state.isConnected) {
-        getUserDetail();
+        registerUser();
       }
       else {
           Alert.alert('Please check your internet connection and try again.', '', [{
@@ -159,7 +159,7 @@ export default function SaveUrlView(props) {
   };
 
 
-  var btnextr = show ? { marginTop: 0 } : { marginTop: 120 };
+  var btnextr = show || Platform.OS=="android" ? { marginTop: 0 } : { marginTop: 120 };
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' }}>
