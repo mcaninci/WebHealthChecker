@@ -70,6 +70,25 @@ namespace Mobile.ApiGateway.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult HealthCheck()
+        {
+             UserDefinition user;
+            try {
+                 GenericResponse<string> returnObject = new GenericResponse<string>();
+           user  = _userDefinitionRepository.GetList<UserDefinition>(new {  Id = 1 }).FirstOrDefault();
+           
+            }
+            catch(Exception ex){
+            return StatusCode(StatusCodes.Status200OK, ex.Message.ToString()+" "+ex.InnerException.Message+" "+ex.StackTrace);
+
+            }
+           
+                return StatusCode(StatusCodes.Status200OK, "healthly "+user!=null?user.InsertDate:0);
+        
+        }
+
+
         [HttpPost]
         public ActionResult<GenericResponse<SignInResponseModel>> SignIn([FromBody] SignInRequestModel signInRequestModel)
         {
@@ -94,6 +113,8 @@ namespace Mobile.ApiGateway.Controllers
 
                     returnObject.Value = new SignInResponseModel() { Token = user.Token, HashCode = user.HashCode };
                     _userDefinitionRepository.Update(user);
+                    returnObject.IsSuccess=true;
+                    
                     return new ActionResult<GenericResponse<SignInResponseModel>>(returnObject);
                 }
 
@@ -210,21 +231,30 @@ namespace Mobile.ApiGateway.Controllers
         [HttpPost]
         //[HttpPost("~/connect/token"), Produces("application/json")]
         [BasicAuthorization]
-        public ActionResult<UserDefinition> GetUserByUserId([FromBody] int userId)
+        public ActionResult<GenericResponse<UserDefinition>> GetUserByUserId([FromBody] int userId)
         {
             //return LoginController.DummyGetUserByUserId(userId);
-            return _userReferenceRepository.Get<UserDefinition>(userId);
+        
+      GenericResponse<UserDefinition> returnObject = new GenericResponse<UserDefinition>();
+            var userdata= _userReferenceRepository.Get<UserDefinition>(userId);
+            returnObject.Value=userdata;
+         return new ActionResult<GenericResponse<UserDefinition>>(returnObject);
 
         }
 
         [HttpPost]
-        [EnableCors("_myAllowSpecificOrigins")]
-        [BasicAuthorization]
-        public ActionResult<UserDefinition> GetUserByHashCode([FromBody] string hashCode)
-        {
-            //return LoginController.DummyGetUserByUserId(1);
-            return _userReferenceRepository.GetList<UserDefinition>(new { HashCode = hashCode }).FirstOrDefault();
 
+  
+        public ActionResult<GenericResponse<UserDefinition>> GetUserByHashCode([FromBody] string hashCode)
+        {
+            GenericResponse<UserDefinition> returnObject = new GenericResponse<UserDefinition>();
+            returnObject.Results=new List<Result>();
+            var userdata= _userReferenceRepository.GetList<UserDefinition>(new { HashCode = hashCode }).FirstOrDefault();
+            if(userdata==null){
+                returnObject.Results.Add(new Result("E00055", "User not valid QR"));
+            }
+            returnObject.Value=userdata;
+         return new ActionResult<GenericResponse<UserDefinition>>(returnObject);
         }
 
         private static ActionResult<UserDefinition> DummyGetUserByUserId(int userId)

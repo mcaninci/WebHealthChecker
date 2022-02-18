@@ -27,7 +27,7 @@ namespace DevTeam.Framework
         private bool _isSuccess;
         public bool IsSuccess
         {
-            get => Results != null && Results.Count > 0;
+            get{ return Results != null && Results.Count > 0?false:true;}
 
             set => _isSuccess = value;
         }

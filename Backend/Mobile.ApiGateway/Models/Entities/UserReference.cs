@@ -5,7 +5,8 @@ using DevTeam.Framework;
 namespace Mobile.ApiGateway.Models.Entities
 {
     [Serializable]
-    [Table("USER_DEFINITION")]
+
+    [Table("USER_REFERENCE")]
     public class UserReference : EntityBase<UserReference>
     {
 

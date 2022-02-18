@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Mobile.ApiGateway.Models.Entities;
+using System.Text;
+using System;
 
 namespace Mobile.ApiGateway
 {
@@ -41,13 +43,14 @@ namespace Mobile.ApiGateway
             }
 
             var token = authHeaderRegex.Replace(authorizationHeader, "$1");
-            //var authBase64 = Encoding.UTF8.GetString(Convert.FromBase64String(token));
+            
+            var authBase64 = Encoding.UTF8.GetString(Convert.FromBase64String(token));
             //var authSplit = authBase64.Split(Convert.ToChar(":"), 2);
             //var authUsername = authSplit[0];
             //var authPassword = authSplit.Length > 1 ? authSplit[1] : throw new Exception("Unable to get password");
 
             UserDefinition userDefinition = new UserDefinition();
-            UserDefinition user = userDefinition.GetList<UserDefinition>(new { Token = token }).FirstOrDefault();
+            UserDefinition user = userDefinition.GetList<UserDefinition>(new { Token = authBase64 }).FirstOrDefault();
             if (user != null)
             {
                 var authenticatedUser = new AuthenticatedUser("BasicAuthentication", true, user.Name);
