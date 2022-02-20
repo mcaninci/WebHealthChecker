@@ -2,7 +2,7 @@
 {
     public class SignInRequestModel
     {
-        public string Mail { get; set; }
-        public string Password { get; set; }
+          public string HashCode { get; set; }
+                public string Token { get; set; }
     }
 }

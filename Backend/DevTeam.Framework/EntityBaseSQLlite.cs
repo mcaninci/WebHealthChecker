@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.Sqlite;
+
 using Dapper;
 
 namespace DevTeam.Framework
 {
     [Serializable]
-    public abstract class EntityBase<T>
+    public abstract class EntityBaseSQLlite<T>
     {
-        private static readonly string _connectionString="Server=localhost;UserID=root;Password=;Database=diamonddb;Port=3306;SslMode=None;";
+       
+        private static readonly string _connectionString="Data Source=/Users/mehmeti/Desktop/git component/Upwork/WebHealthChecker/Backend/DevTeam.Framework/webcheckerDb.db";
         [System.ComponentModel.DataAnnotations.Schema.Column("Id")]
         [System.ComponentModel.DataAnnotations.Key]
         public int Id { get; set; }
@@ -20,7 +22,7 @@ namespace DevTeam.Framework
  
         public T Get<T>(int id)
         {
-            using (var connection = new MySqlConnection(_connectionString))
+            using (var connection = new SqliteConnection(_connectionString))
             {
 
                 connection.Open();
@@ -32,7 +34,7 @@ namespace DevTeam.Framework
 
         public IEnumerable<T> GetList<T>(object value)
         {
-            using (var connection = new MySqlConnection(_connectionString))
+            using (var connection = new SqliteConnection(_connectionString))
             {
 
                 connection.Open();
@@ -48,7 +50,7 @@ namespace DevTeam.Framework
             try
             {
 
-                using (var connection = new MySqlConnection(_connectionString))
+                using (var connection = new SqliteConnection(_connectionString))
                 {
                     connection.Open();
 
@@ -58,7 +60,7 @@ namespace DevTeam.Framework
                 }
                 return returnObject;
             }
-            catch (MySqlException excp)
+            catch (Exception excp)
             {
                 returnObject.Results.Add(new Result("", excp.Message));
                 return returnObject;
@@ -72,7 +74,7 @@ namespace DevTeam.Framework
             try
             {
 
-                using (var connection = new MySqlConnection(_connectionString))
+                using (var connection = new SqliteConnection(_connectionString))
                 {
                     connection.Open();
 
@@ -80,7 +82,7 @@ namespace DevTeam.Framework
                 }
                 return returnObject;
             }
-            catch (MySqlException excp)
+            catch (Exception excp)
             {
                 returnObject.Results.Add(new Result("", excp.Message));
                 return returnObject;
@@ -89,7 +91,7 @@ namespace DevTeam.Framework
 
         public int Update(T entity)
         {
-            using (var connection = new MySqlConnection(_connectionString))
+            using (var connection = new SqliteConnection(_connectionString))
             {
                 connection.Open();
 

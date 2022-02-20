@@ -5,11 +5,11 @@ namespace Mobile.ApiGateway
     // AuthenticatedUser.cs
     public class AuthenticatedUser : IIdentity
     {
-        public AuthenticatedUser(string authenticationType, bool isAuthenticated, string name)
+        public AuthenticatedUser(string authenticationType, bool isAuthenticated, string userHashCode)
         {
             AuthenticationType = authenticationType;
             IsAuthenticated = isAuthenticated;
-            Name = name;
+            Name = userHashCode;
         }
 
         public string AuthenticationType { get; }

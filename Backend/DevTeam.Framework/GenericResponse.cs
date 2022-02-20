@@ -22,7 +22,7 @@ namespace DevTeam.Framework
 
     public class ResponseBase
     {
-        public List<Result> Results { get; set; }
+        public List<Result> Results=new List<Result>();
 
         private bool _isSuccess;
         public bool IsSuccess

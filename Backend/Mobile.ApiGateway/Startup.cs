@@ -105,6 +105,7 @@ namespace Mobile.ApiGateway
             {
                 app.UseDeveloperExceptionPage();
             }
+               app.UseExceptionHandler("/error-local-development");
 
             //app.UseHttpsRedirection();
 
