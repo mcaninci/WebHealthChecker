@@ -11,3 +11,4 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOAD_USER = 'LOAD_USER';
 export const ALL_USERS = 'ALL_USERS';
+export const UPDATE_URL = 'UPDATE_URL';

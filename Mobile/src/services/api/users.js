@@ -7,7 +7,7 @@ const userLogin =  (data,callback) => {
 }
 
 const userRegister =  (data,callback) => {
-    const res =  request('login/signup/', 'POST', data,callback);
+    const res =  request('login/signup', 'POST', data,callback);
     return  res;
 }
 
@@ -16,29 +16,29 @@ const userLogout =  (callback) => {
     return  res;
 }
 
-const saveUrl =  (callback) => {
-    const res =  request('url/save', 'POST',callback);
+const saveUrl =  (data,callback) => {
+    const res =  request('url/save', 'POST',data,callback);
     return  res;
 }
 
-const updateUrl =  (callback) => {
-    const res =  request('url/update', 'POST',callback);
+const updateUrl =  (data,callback) => {
+    const res =  request('url/update', 'POST',data,callback);
     return  res;
 }
 
 
 const getUrls =  (callback) => {
-    const res =  request('url/geturls', 'POST',callback);
+    const res =  request('url/geturls', 'POST',null,callback);
     return  res;
 }
 
 const getMonitoringList =  (callback) => {
-    const res =  request('monitoring/getmonitoringlist', 'POST',callback);
+    const res =  request('monitoring/getmonitoringlist', 'POST',null,callback);
     return  res;
 }
 
 const getMonitoringDetail =  (callback) => {
-    const res =  request('monitoring/getMonitoringdetail', 'POST',callback);
+    const res =  request('monitoring/getMonitoringdetail', 'POST',null,callback);
     return  res;
 }
 

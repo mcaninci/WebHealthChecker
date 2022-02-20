@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -6,21 +6,85 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Image,
-  Dimensions,
+
 } from 'react-native';
+import {
+  Spinner
+} from '@ui-kitten/components';
+
  import { colors, fonts } from '../../../../styles';
+ import {  getUrls } from '../../../../services/api/users';
+ import { useDispatch, useSelector } from 'react-redux';
+ import { updateUrlFlag } from '../../../../redux/actions/authActions';
 
-import { RadioGroup, GridRow } from '../../../../components';
 
-export default class UrlList extends React.Component {
+  export default function UrlList(props) {
+
+    const [groupedData, setGroupedData] = useState([]);
+    const [loading, setloading] = useState(true);
+    const auth = useSelector((state) => { return state.auth; });
+    const { isAuthenticated, user,updateurl } = auth ? auth : { "isAuthenticated": false, user: {},updateurl:true };
+
+    const dispatch = useDispatch();
+
+
+    
+    const getUrlList=()=>{
+  
+  
+      getUrls( res => {
+          if (res.isSuccess) {
+            var value = res.value.value;
+            dispatch(updateUrlFlag(false));
+             setGroupedData(value);
+             setloading(false);
+         
+  
+  
+  
+          }
+          else {
+            setloading(false);
+            Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
+              {
+                text: 'Try again', onPress: () => {
+  
+                  getUrls();
+  
+                }
+              },
+              {
+                text: 'Cancel', onPress: () => {
+  
+                }
+              }
+            ]);
+          }
+        });
+  
+  
+      
+    }
+
+  useEffect( () => {
+    if(groupedData.length==0 || updateurl){
+      getUrlList();
+    }
+      
+
+  }, [groupedData,loading]);
+
+
+  if(updateurl){
+    getUrlList();
+  }
   _getRenderItemFunction = () =>
-    [this.UrlListItem][
-      this.props.tabIndex
+    [UrlListItem][
+      props.tabIndex
     ];
 
     _openArticle = itemDatail => {
-      this.props.navigation.navigate('Url Update', {
+      props.navigation.navigate('Url Update', {
         itemDatail,
       });
     };
@@ -29,44 +93,57 @@ export default class UrlList extends React.Component {
  
 
     UrlListItem = ({ item }) => (
+      
     <TouchableOpacity
       key={item.id}
       style={styles.itemTwoContainer}
-      onPress={() => this._openArticle(item)}
+      onPress={() => _openArticle(item)}
     >
       <View style={styles.itemTwoContent}>
        
         <View style={styles.itemTwoOverlay} />
-        <Text style={styles.itemTwoTitle}>URL: {item.url}</Text>
-        <Text style={styles.itemTwoSubTitle}>Schecule Time: {item.scheculetimeText}</Text>
+        <Text style={styles.itemTwoTitle}>URL: {item.urls}</Text>
+        <Text style={styles.itemTwoSubTitle}>Schecule Time: {"Every day at "+(new Date(item.scheculeTime)).getHours()+":"+(new Date(item.scheculeTime)).getMinutes()}</Text>
       </View>
     </TouchableOpacity>
   );
 
 
-  render() {
-    const groupedData = this.props.data;
-    
+  const renderLoading = () => (
+    <View style={styles.loading}>
+      <Spinner/>
+    </View>
+  );
 
-    return (
-      <View style={styles.container}>
+
+  const renderData = () => (
+    <View style={styles.container}>
        
-        <FlatList
-          keyExtractor={item =>
-            item.id
-              ? `${this.props.tabIndex}-${item.id}`
-              : `${item[0] && item[0].id}`
-          }
-          style={{ backgroundColor: colors.black, paddingHorizontal: 15 }}
-          data={groupedData}
-          renderItem={this._getRenderItemFunction()}
-        />
-      </View>
-    );
-  }
+    <FlatList
+      keyExtractor={item =>
+        item.id
+          ? `${props.tabIndex}-${item.id}`
+          : `${item[0] && item[0].id}`
+      }
+      style={{ backgroundColor: colors.black, paddingHorizontal: 15 }}
+      data={groupedData}
+      renderItem={_getRenderItemFunction()}
+    />
+  </View>
+  );
+
+    return  loading==false ? renderData() : renderLoading();
+
+
 }
 
 const styles = StyleSheet.create({
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'black'
+  },
   container: {
     flex: 1,
     backgroundColor: colors.black,
@@ -91,7 +168,7 @@ const styles = StyleSheet.create({
   itemTwoTitle: {
     color: colors.white,
     fontFamily: fonts.primaryBold,
-    fontSize: 20,
+    fontSize: 18,
   },
   itemTwoSubTitle: {
     color: colors.white,

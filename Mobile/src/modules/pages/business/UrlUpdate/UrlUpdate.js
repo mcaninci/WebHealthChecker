@@ -7,20 +7,27 @@ import {
   StyleService,
   Text,
   useStyleSheet,
-  Divider
+  Divider,
+  Spinner
 } from '@ui-kitten/components';
-
+import {  updateUrl } from '../../../../services/api/users';
 import { ImageOverlay } from '../../../../components/image-overlay';
 import DateTimePicker from '@react-native-community/datetimepicker';
+
+import { useDispatch } from 'react-redux';
+import { updateUrlFlag } from '../../../../redux/actions/authActions';
+import { color } from 'react-native-elements/dist/helpers';
 
 export default function UrlUpdate(props) {
   let urldata = props.route.params.itemDatail;
 
   const styles = useStyleSheet(themedStyles);
-  const [url, setUrl] = useState(urldata.url || '');
-  const [date, setDate] = useState(new Date(urldata.scheculetime));
+  const [url, setUrl] = useState(urldata.urls || '');
+  const [date, setDate] = useState(new Date(urldata.scheculeTime));
   const [mode, setMode] = useState('time');
   const [show, setShow] = useState(false);
+  const [loading, setloading] = useState(false);
+  const dispatch = useDispatch();
 
   const showMode = (currentMode) => {
     if (show) {
@@ -44,23 +51,60 @@ export default function UrlUpdate(props) {
   };
 
   const updateURL = () => {
+    setloading(true);
     if (url == "" || url == undefined) {
       Alert.alert(
         "Please enter web site url",
       );
     }
     else {
-      Alert.alert(
-        "web site urls" + JSON.stringify(url) + " datetime " + date
-      );
+      updateUrl({ Id:urldata.id,Urls:url, ScheculeTime: date }, res => {
+        setloading(false);
+        if (res.isSuccess) {
+          var value = res.value.value;
+
+          if (value.errorUrlCound > 0) {
+            Alert.alert(value.errorUrlCound + " url doesnt update.Please check Urls list.");
+          }
+          else {
+            Alert.alert("Url updated succesfully.");
+            dispatch(updateUrlFlag(true));
+          }
+
+
+
+        }
+        else {
+          Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
+            {
+              text: 'Try again', onPress: () => {
+
+                saveUrls();
+
+              }
+            },
+            {
+              text: 'Cancel', onPress: () => {
+
+              }
+            }
+          ]);
+        }
+      });
     }
 
+ 
+ 
+
+
+    
   }
 
 
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' }}>
+  
       <ImageOverlay
         style={{ width: '100%', height: '100%' }}
         source={require('../../../../../assets/images/backgrounds/image-background.jpeg')}>
@@ -72,7 +116,7 @@ export default function UrlUpdate(props) {
             <Input style={styles.urlinput}
               onChangeText={(text) => setUrl(text)}
               value={url}
-              placeholder='www.websiteurl.com;www.websiteurl.com'
+              placeholder='www.websiteurl.com'
               multiline={false}
             />
 
@@ -105,23 +149,33 @@ export default function UrlUpdate(props) {
 
             </View>
 
-
-            <Button style={styles.updateButton} onPress={updateURL} >
-              Update URL Detail
-            </Button>
+            {loading ?     <View style={styles.loading}>
+      <Spinner/>
+    </View>:    <Button style={styles.updateButton} onPress={updateURL} >
+              Update URL Detail 
+            </Button>} 
+        
             <Divider style={{ backgroundColor: 'white', marginTop: 10, height: 5 }} />
+
           </View>
 
 
         </View>
-
+      
 
       </ImageOverlay>
+   
     </View>
   );
 };
 
 const themedStyles = StyleService.create({
+  loading: {
+
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 10,
+  },
   container: {
     flex: 1,
     justifyContent: 'flex-start',

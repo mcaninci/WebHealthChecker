@@ -1,36 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StyleSheet,
   View,
-  Image,
-  Linking,
-  Dimensions,
   Alert,
-  TouchableOpacity,
   Platform
 } from 'react-native';
 import {
   Text,
   Button,
   StyleService,
-  CheckBox,
-  Input,
-  useStyleSheet,
-  Icon, Divider, RadioGroup, Radio
+  Input, Divider, RadioGroup, Radio,Spinner
 } from '@ui-kitten/components';
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { ImageOverlay } from '../../../../components/image-overlay';
-
 import { useDispatch, useSelector } from 'react-redux';
-
-import { userGet } from '../../../../services/api/users';
-
+import { userRegister, saveUrl } from '../../../../services/api/users';
 
 
 
 
-import { login, setUserDetail } from '../../../../redux/actions/authActions';
+
+import { login } from '../../../../redux/actions/authActions';
 
 export default function SaveUrlView(props) {
   const netInfo = useNetInfo();
@@ -42,7 +32,7 @@ export default function SaveUrlView(props) {
 
   const dispatch = useDispatch();
 
-
+  const [loading, setloading] = useState(false);
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('time');
   const [show, setShow] = useState(false);
@@ -54,70 +44,67 @@ export default function SaveUrlView(props) {
   };
   const multilineInputState = useInputState();
 
+  const hashCode = function (s) {
+    var h = 0, l = s.length, i = 0;
+    if (l > 0)
+      while (i < l)
+        h = (h << 5) - h + s.charCodeAt(i++) | 0;
+    return h;
+  };
 
   const registerUser = () => {
     //this method is used to register user information at server in background.It's a tempory login method.
-    // // userRegister(user.token, res => {
-    // //   if (res.isSuccess) {
-    // //     if (Object.getOwnPropertyNames(userData).length == 0) {
-    // //       var userobject = {
-    // //         userName: res.value.name + " " + res.value.surname,
-    // //         userSocial: { instagram: res.value.instagram, twitter: res.value.twitter, linkedin: res.value.linkedIn },
-    // //         userVerify: res.value.isVerify,
-    // //         verifyLinkQR: "http://localhost:3000/#/verify/" + res.value.hashCode,
-    // //         userImg: res.value.image,
-    // //         referanceCode: res.value.referenceCode,
-    // //         accountType: res.value.userType == 1 ? 'Diamond' : res.value.userType == 2 ? 'Gold' : res.value.userType == 3 ? 'Silver' : res.value.userType == 4 ? 'Bronz' : 'Unknow'
-    // //       };
-    // //        let userImage=''+userobject.userImg;
-    // //       setuserImg(userImage);
-    // //       if(userobject.accountType=='Diamond'){
-    // //         setAccountIcon(require('../../../../../assets/images/pages/identity/diamond.png'));
-    // //       }
-    // //      else if(userobject.accountType=='Gold'){
-    // //       setAccountIcon( require('../../../../../assets/images/pages/identity/gold.png'));
-    // //       }
-    // //       else if(userobject.accountType=='Silver'){
-    // //         setAccountIcon(  accountIcon=   require('../../../../../assets/images/pages/identity/silver.png'));
-    // //       }
-    // //       else if(userobject.accountType=='Bronz'){
-    // //         setAccountIcon(  accountIcon=   require('../../../../../assets/images/pages/identity/bronz.png'));
-    // //       }
-    // //       dispatch(setUserDetail(userobject));
-    // //       setuserData(userobject);
+    var registerData = new Date().toString() + "Salt";
+    var hashcode = hashCode(registerData).toString();
+    setloading(true);
+    userRegister({ hashCode: hashcode }, res => {
+      if (res.isSuccess) {
 
 
-    // //     }
-    // //   } else {
-    // //     console.log(res.data);
-    // //   }
-    // });
+        dispatch(login({ token: res.value.token, hashcode: hashcode }));
+        setloading(false);
+      }
+      else {
+        console.log(res.data);
+      }
+    });
 
   }
+
 
   checkConnectionandRegister = () => {
     var breakFlag = false;
     NetInfo.fetch().then(state => {
       if (state.isConnected) {
-        registerUser();
+        if (!isAuthenticated) {
+          registerUser();
+        }
+
       }
       else {
-          Alert.alert('Please check your internet connection and try again.', '', [{
-            text: 'Try again', onPress: () => {
-           
-                checkConnectionandRegister();
-              
-            }
-          }]);
+        Alert.alert('Please check your internet connection and try again.', '', [{
+          text: 'Try again', onPress: () => {
+
+            checkConnectionandRegister();
+
+          }
+        }]);
       }
     });
   }
-
+  // www.bimcelliymxdx.tk
+  // ;www.bim22pazar.com
+  // ;www.subegarantibbvacomtr.tk
+  // ;www.b2cemllpzraksamlarr.com
+  // ;www.mybijiimcelcitlykl.com
+  // ;www.destekteb.tk
+  // ;www.bimcell043243.com
+  // ;www.bimcelleodemelwq.com
+  // ;www.internetsubesi.bildirimgirisi.xyz
+  // ;www.paributtansferodulleri.com
+  // ;www.cpanel.ziraatbanki.info
+  // ;www.denizacikv3girisvv.ml
   useEffect(() => {
-    if (Object.getOwnPropertyNames(userData).length == 0) {
-      // getUserDetail();
-
-    }
     checkConnectionandRegister();
   }, [userData]);
 
@@ -129,15 +116,48 @@ export default function SaveUrlView(props) {
   };
 
   const saveUrls = () => {
+    setloading(true);
     if (multilineInputState.urls == "" || multilineInputState.urls == undefined) {
       Alert.alert(
         "Please enter web site urls",
       );
+      setloading(false);
     }
     else {
-      Alert.alert(
-        "web site urls" + JSON.stringify(multilineInputState.urls) + " datetime " + date
-      );
+      saveUrl({ Urls: multilineInputState.urls, PrefixType: selectedIndex, ScheculeTime: date }, res => {
+        setloading(false);
+        if (res.isSuccess) {
+          var value = res.value.value;
+
+          if (value.errorUrlCound > 0) {
+            Alert.alert(value.errorUrlCound + " Urls doesnt save.Please check Urls list.");
+          }
+          else {
+            Alert.alert("All urls saved succesfully.");
+          }
+
+
+
+        }
+        else {
+          Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
+            {
+              text: 'Try again', onPress: () => {
+
+                saveUrls();
+
+              }
+            },
+            {
+              text: 'Cancel', onPress: () => {
+
+              }
+            }
+          ]);
+        }
+      });
+
+
     }
 
   }
@@ -159,7 +179,7 @@ export default function SaveUrlView(props) {
   };
 
 
-  var btnextr = show || Platform.OS=="android" ? { marginTop: 0 } : { marginTop: 120 };
+  var btnextr = show || Platform.OS == "android" ? { marginTop: 0 } : { marginTop: 120 };
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' }}>
@@ -213,15 +233,19 @@ export default function SaveUrlView(props) {
                 onPress={showTimepicker} >
                 Set Schecule Time
               </Button>
+ 
             </View>
 
             <View style={[styles.containerRow, btnextr]}>
               <Text style={styles.Urltext}>These URLs are checked every day at {date.getHours() + ":" + date.getMinutes()}  by the web health checker.</Text>
               {/* // alignSelf : 'stretch'  */}
               <Divider style={{ backgroundColor: 'white', marginTop: 30, height: 5 }} />
-              <Button style={styles.signInButton} onPress={saveUrls} >
+              {loading ?     <View style={styles.loading}>
+      <Spinner/>
+    </View>:<Button style={styles.signInButton} onPress={saveUrls} >
                 Save Urls
-              </Button>
+              </Button>}  
+    
             </View>
 
 
@@ -245,7 +269,11 @@ export default function SaveUrlView(props) {
 
 
 const styles = StyleService.create({
-
+  loading: {
+  
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     justifyContent: 'flex-start',
