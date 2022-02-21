@@ -29,7 +29,7 @@ const request = async function (endpoint, method, data, callback) {
           if (response.ok) {
             callback({
               value: data,
-              isSuccess: true
+              isSuccess: data.isSuccess
             });
           }
           else {

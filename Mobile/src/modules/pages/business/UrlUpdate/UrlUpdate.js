@@ -29,6 +29,26 @@ export default function UrlUpdate(props) {
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
 
+useEffect(() => {
+  props.navigation.setParams({ handleSave: () => this.saveDetails() })
+  
+} , []);
+
+const navigationOptions = ({ navigation }) => {
+    const { state } = navigation
+    return {
+      headerTitle: 'New Task',
+      headerRight: <Button title="Save" onPress={() => state.params.handleSave()} />,
+    }
+  }
+
+
+
+  const saveDetails=()=> {
+    alert('saved');
+  }
+
+
   const showMode = (currentMode) => {
     if (show) {
       setShow(false);

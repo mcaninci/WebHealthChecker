@@ -6,7 +6,7 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-
+  Alert,
 } from 'react-native';
 import {
   Spinner
@@ -20,7 +20,7 @@ import {
 
   export default function UrlList(props) {
 
-    const [groupedData, setGroupedData] = useState([]);
+    const [urlListData, setUrlListData] = useState([]);
     const [loading, setloading] = useState(true);
     const auth = useSelector((state) => { return state.auth; });
     const { isAuthenticated, user,updateurl } = auth ? auth : { "isAuthenticated": false, user: {},updateurl:true };
@@ -29,6 +29,7 @@ import {
 
 
     
+    
     const getUrlList=()=>{
   
   
@@ -36,11 +37,8 @@ import {
           if (res.isSuccess) {
             var value = res.value.value;
             dispatch(updateUrlFlag(false));
-             setGroupedData(value);
+            setUrlListData(value);
              setloading(false);
-         
-  
-  
   
           }
           else {
@@ -67,23 +65,24 @@ import {
     }
 
   useEffect( () => {
-    if(groupedData.length==0 || updateurl){
+    if(urlListData.length==0 || updateurl){
       getUrlList();
     }
       
 
-  }, [groupedData,loading]);
+  }, [urlListData]);
 
 
   if(updateurl){
     getUrlList();
   }
-  _getRenderItemFunction = () =>
+
+  const _getRenderUrlItemFunction = () =>
     [UrlListItem][
       props.tabIndex
     ];
 
-    _openArticle = itemDatail => {
+   const  _openUrlUpdate = itemDatail => {
       props.navigation.navigate('Url Update', {
         itemDatail,
       });
@@ -97,7 +96,7 @@ import {
     <TouchableOpacity
       key={item.id}
       style={styles.itemTwoContainer}
-      onPress={() => _openArticle(item)}
+      onPress={() => _openUrlUpdate(item)}
     >
       <View style={styles.itemTwoContent}>
        
@@ -126,8 +125,8 @@ import {
           : `${item[0] && item[0].id}`
       }
       style={{ backgroundColor: colors.black, paddingHorizontal: 15 }}
-      data={groupedData}
-      renderItem={_getRenderItemFunction()}
+      data={urlListData}
+      renderItem={_getRenderUrlItemFunction()}
     />
   </View>
   );

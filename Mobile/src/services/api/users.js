@@ -37,16 +37,9 @@ const getMonitoringList =  (callback) => {
     return  res;
 }
 
-const getMonitoringDetail =  (callback) => {
-    const res =  request('monitoring/getMonitoringdetail', 'POST',null,callback);
-    return  res;
-}
 
 
-// const getUsers = async () => {
-//     const res =  request('users', 'GET');
-//     return  res.json();
-// }
+
 
 
 
@@ -59,7 +52,6 @@ export {
     saveUrl,
     updateUrl,
     getUrls,
-    getMonitoringList,
-    getMonitoringDetail
+    getMonitoringList
   
 }

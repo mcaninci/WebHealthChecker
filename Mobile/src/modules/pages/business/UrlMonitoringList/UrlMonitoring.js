@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -8,40 +8,109 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
+  Alert,
 } from 'react-native';
+import {
+  Spinner
+} from '@ui-kitten/components';
  import { colors, fonts } from '../../../../styles';
 
-import { RadioGroup, GridRow } from '../../../../components';
+ import {  getMonitoringList } from '../../../../services/api/users';
+ import { useDispatch, useSelector } from 'react-redux';
+ import { updateUrlFlag } from '../../../../redux/actions/authActions';
 
-export default class UrlMonitoring extends React.Component {
-  _getRenderItemFunction = () =>
-    [this.UrlListItem][
-      this.props.tabIndex
+
+
+export default function UrlMonitoring(props) {
+
+  const [urlMonitoringData, setUrlMonitoringData] = useState([]);
+  const [loading, setloading] = useState(true);
+  const auth = useSelector((state) => { return state.auth; });
+  const { isAuthenticated, user,updateurl } = auth ? auth : { "isAuthenticated": false, user: {},updateurl:true };
+
+  const dispatch = useDispatch();
+
+
+ 
+  const getMonitoringUrlList=()=>{
+  
+    props.navigation.setParams({ handleSave: testevent });
+    getMonitoringList( res => {
+        if (res.isSuccess) {
+          var value = res.value.value;
+          dispatch(updateUrlFlag(false));
+          setUrlMonitoringData(value);
+           setloading(false);
+       
+
+
+
+        }
+        else {
+          setloading(false);
+          Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
+            {
+              text: 'Try again', onPress: () => {
+
+                getMonitoringUrlList();
+
+              }
+            },
+            {
+              text: 'Cancel', onPress: () => {
+
+              }
+            }
+          ]);
+        }
+      });
+  }
+
+  const testevent=()=>{
+
+    Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?');
+}
+  useEffect( () => {
+    if(urlMonitoringData.length==0 || updateurl){
+      getMonitoringUrlList();
+    }
+  
+      
+
+  }, [urlMonitoringData]);
+
+
+  if(updateurl){
+    getMonitoringUrlList();
+  }
+  
+
+  const _getRenderMonitoringItemFunction = () =>
+    [MonitoringListItem][
+      props.tabIndex
     ];
 
-    _openArticle = itemDatail => {
-      this.props.navigation.navigate('Url Monitoring Detail', {
+   const  _openMonitoringDetail = itemDatail => {
+      props.navigation.navigate('Url Monitoring Detail', {
         itemDatail,
       });
     };
-  
 
- 
 
-    UrlListItem = ({ item }) => (
+    MonitoringListItem = ({ item }) => (
       <TouchableOpacity
       key={item.id}
       style={styles.itemThreeContainer}
-      onPress={() => this._openArticle(item)}
+      onPress={() => _openMonitoringDetail(item)}
     >
       <View style={styles.itemThreeSubContainer}>
-        <Image source={{ uri: item.image }} style={styles.itemThreeImage} />
+        <Image source={{ uri: item.screenShot }} style={styles.itemThreeImage} />
         <View style={styles.itemThreeContent}>
         
           
             <Text style={styles.itemThreeTitle}>{item.url}</Text>
             <Text style={styles.itemThreeSubtitle} numberOfLines={1}>
-            Last Checked : {item.lastcheckDateText}
+            Last Checked : {item.insertDate}
             </Text>
         
           <View style={styles.itemThreeMetaContainer}>
@@ -49,14 +118,14 @@ export default class UrlMonitoring extends React.Component {
               <View
                 style={[
                   styles.badge,
-                  item.responseCode ==200 && { backgroundColor: colors.green },
+                  item.status ==200 && { backgroundColor: colors.green },
                 ]}
               >
                 <Text
                   style={{ fontSize: 13, color: colors.white }}
                   styleName="bright"
                 >
-                  {item.status}
+                  { item.status ==200 ?'Healthy':'Unhealthy'}
                 </Text>
               </View>
             )}
@@ -69,29 +138,42 @@ export default class UrlMonitoring extends React.Component {
   );
 
 
-  render() {
-    const groupedData = this.props.data;
+
+  const renderLoading = () => (
+    <View style={styles.loading}>
+      <Spinner/>
+    </View>
+  );
     
 
-    return (
+  const renderData = () => (
       <View style={styles.container}>
        
         <FlatList
           keyExtractor={item =>
             item.id
-              ? `${this.props.tabIndex}-${item.id}`
+              ? `${props.tabIndex}-${item.id}`
               : `${item[0] && item[0].id}`
           }
           style={{ backgroundColor: colors.white, paddingHorizontal: 15 }}
-          data={groupedData}
-          renderItem={this._getRenderItemFunction()}
+          data={urlMonitoringData}
+          renderItem={_getRenderMonitoringItemFunction()}
         />
       </View>
     );
-  }
+
+
+    return  loading==false ? renderData() : renderLoading();
+  
 }
 
 const styles = StyleSheet.create({
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor:'black'
+  },
   container: {
     flex: 1,
     backgroundColor: colors.white,

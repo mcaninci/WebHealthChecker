@@ -47,7 +47,7 @@ export default function UrlMonitoringDetail(props) {
     <Layout style={styles.header}>
       <ImageBackground
         style={styles.image}
-        source={{ uri: urlitem.image }}
+        source={{ uri: urlitem.screenShot }}
       />
       <Layout
         style={styles.detailsContainer}
@@ -60,14 +60,14 @@ export default function UrlMonitoringDetail(props) {
               <View
                 style={[
                   styles.badge,
-                  urlitem.responseCode == 200 && { backgroundColor: colors.green },
+                  urlitem.status == 200 && { backgroundColor: colors.green },
                 ]}
               >
                 <Text
                   style={{ fontSize: 13, color: colors.white }}
                   styleName="bright"
                 >
-                  {urlitem.status}
+               { urlitem.status ==200 ?'Healthy':'Unhealthy'}
                 </Text>
               </View>
             )}
@@ -78,14 +78,14 @@ export default function UrlMonitoringDetail(props) {
           style={styles.description}
           appearance='hint'
         >
-          Last Checked : {urlitem.lastcheckDateText}
+          Last Checked : {urlitem.insertDate}
         </Text>
 
 
         <Text
           style={styles.size}
           appearance='hint'>
-          Response Code : {urlitem.responseCode}
+          Response Code : {urlitem.status}
         </Text>
         <Text
           style={styles.size}
@@ -149,10 +149,12 @@ const themedStyles = StyleService.create({
     marginLeft: 50
   },
   badge: {
+    flexDirection: 'row',
     backgroundColor: colors.secondary,
     borderRadius: 10,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    marginLeft: 25
+    marginLeft: 25,
+    marginTop: 10
   }
 });

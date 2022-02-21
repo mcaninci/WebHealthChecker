@@ -28,6 +28,26 @@ const headerLeftComponent = (props) => {
     </TouchableOpacity>    
   )
 }
+const headerRightComponent = (props) => {
+  return (
+    <TouchableOpacity
+      onPress={props.handleSave}
+      style={{
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+
+      }}
+    >
+      <Image
+        source={require('../../../../../assets/icons/delete.png')}
+        resizeMode="contain"
+        style={{
+          height: 20,
+        }}
+      />
+    </TouchableOpacity>    
+  )
+}
 
 const headerBackground = require('../../../../../assets/images/backgrounds/image-background.jpeg');
 
@@ -48,6 +68,7 @@ const StackNavigationData = [
     name: 'Url Update',
     component: UrlUpdate,
     headerLeft: headerLeftComponent,
+    headerRight: headerRightComponent,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {
       fontFamily: fonts.primaryRegular,
