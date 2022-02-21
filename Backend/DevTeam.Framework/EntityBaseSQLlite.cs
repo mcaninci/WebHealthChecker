@@ -42,7 +42,16 @@ namespace DevTeam.Framework
 
             }
         }
+        public IEnumerable<T> GetListConditions<T>(string querypart,object value)
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
 
+                connection.Open();
+                return connection.GetList<T>(querypart,value);
+
+            }
+        }
 
         public GenericResponse<int?> Save(T entity)
         {
@@ -101,8 +110,15 @@ namespace DevTeam.Framework
 
         }
 
-        public int Delete(int id)
+        public int Delete<T>(int id)
         {
+               using (var connection = new SqliteConnection(_connectionString))
+            {
+                connection.Open();
+
+                return connection.Delete<T>(id);
+            }
+           
             return 1;
 
         }

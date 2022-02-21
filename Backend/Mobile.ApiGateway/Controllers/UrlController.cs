@@ -233,5 +233,26 @@ namespace Mobile.ApiGateway.Controllers
             }
 
         }
+
+         [HttpPost]
+        [BasicAuthorization]
+        public ActionResult<GenericResponse<bool>> Delete([FromBody] int urlId)
+        {
+            GenericResponse<bool> returnObject = new GenericResponse<bool>();
+        
+            try
+            {
+                _urlsRepository.Delete<Urls>(urlId);
+                returnObject.IsSuccess = true;
+                return new ActionResult<GenericResponse<bool>>(returnObject);
+            }
+            catch (Exception excp)
+            {
+                returnObject.Results.Add(new Result("E00007", excp.Message));
+                return new ActionResult<GenericResponse<bool>>(returnObject);
+
+            }
+
+        }
     }
 }
