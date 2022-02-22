@@ -29,10 +29,11 @@ namespace Mobile.ApiGateway.Controllers
             return View();
         }
 
-       //TODO timezone test edilse iyi olur
+        //TODO timezone test edilse iyi olur
 
         private readonly UserDefinition _userDefinitionRepository;
         private readonly Urls _urlsRepository;
+        private readonly HealthCheckUrl _healthCheckUrlRepository;
         private int _authUserId;
         private UserType _authUserType;
         private string _authUserHashCode;
@@ -45,6 +46,7 @@ namespace Mobile.ApiGateway.Controllers
 
             _userDefinitionRepository = new UserDefinition();
             _urlsRepository = new Urls();
+            _healthCheckUrlRepository = new HealthCheckUrl();
 
 
         }
@@ -212,12 +214,12 @@ namespace Mobile.ApiGateway.Controllers
             if (urlData == null)
             {
                 returnObject.Results.Add(new Result("E00005", "Record not found"));
-                    returnObject.Value = new UrlSaveModel() { SuccessfulUrlCount = 0, ErrorUrlCound = 1 };
+                returnObject.Value = new UrlSaveModel() { SuccessfulUrlCount = 0, ErrorUrlCound = 1 };
                 return new ActionResult<GenericResponse<UrlSaveModel>>(returnObject);
             }
             try
             {
-               
+
                 urlData.url = urlsModel.Urls;
                 urlData.scheduletime = DateHelper.GetLocalDate(urlsModel.ScheculeTime);
                 _urlsRepository.Update(urlData);
@@ -234,15 +236,17 @@ namespace Mobile.ApiGateway.Controllers
 
         }
 
-         [HttpPost]
+        [HttpPost]
         [BasicAuthorization]
-        public ActionResult<GenericResponse<bool>> Delete([FromBody] int urlId)
+        public ActionResult<GenericResponse<bool>> DeleteUrlById([FromBody] int urlId)
         {
             GenericResponse<bool> returnObject = new GenericResponse<bool>();
-        
+
             try
             {
-                _urlsRepository.Delete<Urls>(urlId);
+             
+                _healthCheckUrlRepository.DeleteByConditions<HealthCheckUrl>("where url_Id = @ids", new {ids = urlId});
+                _urlsRepository.DeleteByConditions<Urls>("where Id = @ids", new {ids = urlId});
                 returnObject.IsSuccess = true;
                 return new ActionResult<GenericResponse<bool>>(returnObject);
             }

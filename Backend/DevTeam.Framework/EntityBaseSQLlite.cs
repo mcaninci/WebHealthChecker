@@ -122,5 +122,17 @@ namespace DevTeam.Framework
             return 1;
 
         }
+
+
+             public int DeleteByConditions<T>(string querypart,object value)
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+
+                connection.Open();
+                return connection.DeleteList<T>(querypart,value);
+
+            }
+        }
     }
 }
