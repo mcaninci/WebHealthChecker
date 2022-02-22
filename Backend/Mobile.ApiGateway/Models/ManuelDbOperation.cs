@@ -48,7 +48,7 @@ namespace Mobile.ApiGateway
             }
         }
 
-            public static GenericResponse<int?> InsertUrl(Urls urlsModel)
+        public static GenericResponse<int?> InsertUrl(Urls urlsModel)
         {
             GenericResponse<int?> returnObject = new GenericResponse<int?>();
             try
@@ -60,6 +60,42 @@ namespace Mobile.ApiGateway
 
                     string insertUserSql = @"INSERT INTO urls(InsertDate, url, user_definition_id,scheduletime)
                         VALUES(@InsertDate, @url, @user_definition_id, @scheduletime);SELECT rowid FROM user_definition order by 1 desc limit 1;";
+
+                    int newUserId = connection.QuerySingle<int>(
+                                        insertUserSql,
+                                        new
+                                        {
+                                            InsertDate = urlsModel.InsertDate,
+                                            url= urlsModel.url,
+                                            user_definition_id = urlsModel.userDefinitionId,
+                                            scheduletime = urlsModel.scheduletime
+                                        }
+                                        );
+
+                    returnObject.Value = newUserId;
+                }
+
+                return returnObject;
+            }
+            catch (Exception excp)
+            {
+                returnObject.Results.Add(new Result("", excp.Message));
+                return returnObject;
+            }
+        }
+
+         public static GenericResponse<int?> InsertHealthCheckUrl(Urls urlsModel)
+        {
+            GenericResponse<int?> returnObject = new GenericResponse<int?>();
+            try
+            {
+
+                using (var connection = new SqliteConnection(_connectionString))
+                {
+                    connection.Open();
+
+                    string insertUserSql = @"INSERT INTO HealthCheckURL(InsertDate, url_id, status,screenshot,response_time)
+                        VALUES(@InsertDate, @url_id, @status, @screenshot,response_time);SELECT rowid FROM user_definition order by 1 desc limit 1;";
 
                     int newUserId = connection.QuerySingle<int>(
                                         insertUserSql,
