@@ -15,7 +15,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { ImageOverlay } from '../../../../components/image-overlay';
 import { useDispatch, useSelector } from 'react-redux';
 import { userRegister, saveUrl } from '../../../../services/api/users';
-
+import { TimeIcon,SaveIcon } from '../../../../components/icons';
 
 
 
@@ -230,7 +230,8 @@ export default function SaveUrlView(props) {
             </View>
             <View style={styles.containerRow}>
               <Button style={styles.signInButton}
-                onPress={showTimepicker} >
+                onPress={showTimepicker}
+                accessoryLeft={TimeIcon} >
                 Set Schecule Time
               </Button>
  
@@ -242,7 +243,7 @@ export default function SaveUrlView(props) {
               <Divider style={{ backgroundColor: 'white', marginTop: 30, height: 5 }} />
               {loading ?     <View style={styles.loading}>
       <Spinner/>
-    </View>:<Button style={styles.signInButton} onPress={saveUrls} >
+    </View>:<Button accessoryLeft={SaveIcon} style={styles.signInButton} onPress={saveUrls} >
                 Save Urls
               </Button>}  
     

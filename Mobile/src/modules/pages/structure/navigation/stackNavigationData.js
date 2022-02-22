@@ -68,7 +68,7 @@ const StackNavigationData = [
     name: 'Url Update',
     component: UrlUpdate,
     headerLeft: headerLeftComponent,
-    headerRight: headerRightComponent,
+    // headerRight: headerRightComponent,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {
       fontFamily: fonts.primaryRegular,

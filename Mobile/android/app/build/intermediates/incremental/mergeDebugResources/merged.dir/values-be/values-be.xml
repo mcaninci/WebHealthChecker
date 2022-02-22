@@ -61,4 +61,5 @@
     <string msgid="7163549807207034258" name="s7">"Тэставая рэклама"</string>
     <string msgid="730395136688082741" name="search_menu_title">"Пошук"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="wallet_buy_button_place_holder">Купіць з дапамогай Google</string>
 </resources>

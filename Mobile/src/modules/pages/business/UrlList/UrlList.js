@@ -31,8 +31,6 @@ import {
     
     
     const getUrlList=()=>{
-  
-  
       getUrls( res => {
           if (res.isSuccess) {
             var value = res.value.value;
@@ -91,7 +89,7 @@ import {
 
  
 
-    UrlListItem = ({ item }) => (
+   const UrlListItem = ({ item }) => (
       
     <TouchableOpacity
       key={item.id}

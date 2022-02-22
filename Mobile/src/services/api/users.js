@@ -26,6 +26,10 @@ const updateUrl =  (data,callback) => {
     return  res;
 }
 
+const deleteUrl =  (data,callback) => {
+    const res =  request('url/deleteurlbyid', 'POST',data,callback);
+    return  res;
+}
 
 const getUrls =  (callback) => {
     const res =  request('url/geturls', 'POST',null,callback);
@@ -52,6 +56,7 @@ export {
     saveUrl,
     updateUrl,
     getUrls,
-    getMonitoringList
+    getMonitoringList,
+    deleteUrl
   
 }

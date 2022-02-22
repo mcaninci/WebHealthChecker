@@ -44,7 +44,7 @@
     <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Vyžaduje sa nová verzia služieb Google Play. Aktualizujú sa automaticky v najbližšom čase."</string>
     <string msgid="5201977337835724196" name="common_open_on_phone">"Otvoriť v telefóne"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Prihlásiť sa"</string>
-    <string msgid="669893613918351210" name="common_signin_button_text_long">"Prihlásiť sa do účtu Google"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Prihlásiť sa účtom Google"</string>
     <string msgid="4014704848104544569" name="offline_notification_text">"Klepnutím otvoriť reklamu"</string>
     <string msgid="6989673690118446590" name="offline_notification_title">"Zobrazte si reklamu, ktorú ste uložili v režime offline"</string>
     <string msgid="6452552490969291315" name="offline_opt_in_confirm">"OK"</string>
@@ -61,5 +61,5 @@
     <string msgid="7163549807207034258" name="s7">"Testovacia reklama"</string>
     <string msgid="730395136688082741" name="search_menu_title">"Hľadať"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
-    <string msgid="363496807345461806" name="wallet_buy_button_place_holder">"Kúpiť cez Google"</string>
+    <string name="wallet_buy_button_place_holder">Kúpiť cez Google</string>
 </resources>

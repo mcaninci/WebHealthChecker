@@ -42,10 +42,6 @@ int anim fragment_open_exit 0x7f010028
 int anim mtrl_bottom_sheet_slide_in 0x7f010029
 int anim mtrl_bottom_sheet_slide_out 0x7f01002a
 int anim mtrl_card_lowers_interpolator 0x7f01002b
-int anim rns_slide_in_from_left 0x7f01002c
-int anim rns_slide_in_from_right 0x7f01002d
-int anim rns_slide_out_to_left 0x7f01002e
-int anim rns_slide_out_to_right 0x7f01002f
 int animator design_appbar_state_list_animator 0x7f020000
 int animator design_fab_hide_motion_spec 0x7f020001
 int animator design_fab_show_motion_spec 0x7f020002
@@ -3894,7 +3890,8 @@ int styleable WalletFragmentStyle_maskedWalletDetailsLogoTextColor 9
 int styleable WalletFragmentStyle_maskedWalletDetailsTextAppearance 10
 int xml provider_paths 0x7f110000
 int xml rn_dev_preferences 0x7f110001
-int xml standalone_badge 0x7f110002
-int xml standalone_badge_gravity_bottom_end 0x7f110003
-int xml standalone_badge_gravity_bottom_start 0x7f110004
-int xml standalone_badge_gravity_top_start 0x7f110005
+int xml share_download_paths 0x7f110002
+int xml standalone_badge 0x7f110003
+int xml standalone_badge_gravity_bottom_end 0x7f110004
+int xml standalone_badge_gravity_bottom_start 0x7f110005
+int xml standalone_badge_gravity_top_start 0x7f110006

@@ -10,14 +10,14 @@ import {
   Divider,
   Spinner
 } from '@ui-kitten/components';
-import {  updateUrl } from '../../../../services/api/users';
+import { updateUrl, deleteUrl } from '../../../../services/api/users';
 import { ImageOverlay } from '../../../../components/image-overlay';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { useDispatch } from 'react-redux';
 import { updateUrlFlag } from '../../../../redux/actions/authActions';
 import { color } from 'react-native-elements/dist/helpers';
-
+import { TimeIcon, SaveIcon, DeleteIcon } from '../../../../components/icons';
 export default function UrlUpdate(props) {
   let urldata = props.route.params.itemDatail;
 
@@ -29,12 +29,12 @@ export default function UrlUpdate(props) {
   const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
 
-useEffect(() => {
-  props.navigation.setParams({ handleSave: () => this.saveDetails() })
-  
-} , []);
+  useEffect(() => {
+    props.navigation.setParams({ handleSave: () => this.saveDetails() })
 
-const navigationOptions = ({ navigation }) => {
+  }, []);
+
+  const navigationOptions = ({ navigation }) => {
     const { state } = navigation
     return {
       headerTitle: 'New Task',
@@ -44,7 +44,7 @@ const navigationOptions = ({ navigation }) => {
 
 
 
-  const saveDetails=()=> {
+  const saveDetails = () => {
     alert('saved');
   }
 
@@ -78,7 +78,7 @@ const navigationOptions = ({ navigation }) => {
       );
     }
     else {
-      updateUrl({ Id:urldata.id,Urls:url, ScheculeTime: date }, res => {
+      updateUrl({ Id: urldata.id, Urls: url, ScheculeTime: date }, res => {
         setloading(false);
         if (res.isSuccess) {
           var value = res.value.value;
@@ -113,18 +113,60 @@ const navigationOptions = ({ navigation }) => {
       });
     }
 
- 
- 
 
 
-    
+
+
+
+  }
+  const deleteURL = () => {
+    setloading(true);
+
+
+    deleteUrl(urldata.id, res => {
+      setloading(false);
+      if (res.isSuccess) {
+        var value = res.value.value;
+
+
+
+        Alert.alert('Url deleted.', '', [
+          {
+            text: 'Ok', onPress: () => {
+
+              dispatch(updateUrlFlag(true));
+              props.navigation.goBack();
+            }
+          }
+        ]);
+
+      }
+      else {
+        Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
+          {
+            text: 'Try again', onPress: () => {
+
+              deleteURL();
+
+            }
+          },
+          {
+            text: 'Cancel', onPress: () => {
+
+            }
+          }
+        ]);
+      }
+    });
+
+
   }
 
 
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'transparent' }}>
-  
+
       <ImageOverlay
         style={{ width: '100%', height: '100%' }}
         source={require('../../../../../assets/images/backgrounds/image-background.jpeg')}>
@@ -159,8 +201,10 @@ const navigationOptions = ({ navigation }) => {
                   />
                 )}
                 <Button style={styles.signInButton}
-                  onPress={showTimepicker} >
-                  Set Schecule Time
+                  onPress={showTimepicker}
+                  accessoryLeft={TimeIcon} >
+                  <Text style={{ minWidth: 100 }}>Set Schecule Time</Text>
+
                 </Button>
                 <Text style={styles.Urltext}>This URL is checked every day at {date.getHours() + ":" + date.getMinutes()}  by the web health checker.</Text>
 
@@ -169,22 +213,28 @@ const navigationOptions = ({ navigation }) => {
 
             </View>
 
-            {loading ?     <View style={styles.loading}>
-      <Spinner/>
-    </View>:    <Button style={styles.updateButton} onPress={updateURL} >
-              Update URL Detail 
-            </Button>} 
-        
+            {loading ? <View style={styles.loading}>
+              <Spinner />
+            </View> : <View><Button accessoryLeft={SaveIcon} style={styles.updateButton} onPress={updateURL} >
+
+              <Text style={{ minWidth: 100 }}>Update URL Detail</Text>
+            </Button>
+              <Button accessoryLeft={DeleteIcon} style={styles.deleteButton} status='danger' onPress={deleteURL} >
+
+                <Text style={{ minWidth: 100 }}>  Delete URL</Text>
+              </Button>
+            </View>}
+
             <Divider style={{ backgroundColor: 'white', marginTop: 10, height: 5 }} />
 
           </View>
 
 
         </View>
-      
+
 
       </ImageOverlay>
-   
+
     </View>
   );
 };
@@ -207,7 +257,7 @@ const themedStyles = StyleService.create({
     alignItems: 'center',
     marginTop: 5,
   },
-  
+
   signInButton: {
     marginHorizontal: 16,
     minWidth: 300,
@@ -217,7 +267,13 @@ const themedStyles = StyleService.create({
     marginHorizontal: 16,
     minWidth: 300,
     alignItems: 'center',
-    marginTop:80
+    marginTop: 70
+  },
+  deleteButton: {
+    marginHorizontal: 16,
+    minWidth: 300,
+    alignItems: 'center',
+    marginTop: 10
   },
   headerContainer: {
     justifyContent: 'center',
@@ -231,7 +287,7 @@ const themedStyles = StyleService.create({
   Urltext: {
     color: 'white', justifyContent: 'center', alignItems: 'center',
     marginTop: 40, maxWidth: 300,
-    marginBottom:10
+    marginBottom: 10
   },
   urlinput: {
     minWidth: 250,
