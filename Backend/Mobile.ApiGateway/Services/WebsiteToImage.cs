@@ -1,101 +1,56 @@
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Threading;
+using CoreHtmlToImage;
+using GrapeCity.Documents.Html;
+using GrapeCity.Documents.Imaging;
+using GrapeCity.Documents.Drawing;
+using System;
+using Mobile.ApiGateway.Services;
 
-using System.Drawing;
-
-public class WebsiteToImage
+public static class WebsiteToImage
 {
-    private Bitmap m_Bitmap;
-    private string m_Url;
-    private string m_FileName = string.Empty;
-
-    public WebsiteToImage(string url)
+    public static bool takeScreenshotWithHtmlConverter(string url, string uniqeName, int width, int height, int timeout = 10)
     {
-        // Without file 
-        m_Url = url;
+        var converter = new HtmlConverter();
+        var bytes = converter.FromUrl("https://www.ensonhaber.com/");
+        File.WriteAllBytes(uniqeName + ".jpg", bytes);
+
+        return true;
     }
-
-    public WebsiteToImage(string url, string fileName)
+    public static string takeScreenshotWithGcHtml(string url, string uniqeName, int width, int height, int timeout = 10)
     {
-        // With file 
-        m_Url = url;
-        m_FileName = fileName;
-    }
-
-    public Bitmap Generate()
-    {
-        // Thread 
-        var m_thread = new Thread(_Generate);
-        m_thread.SetApartmentState(ApartmentState.STA);
-        m_thread.Start();
-        m_thread.Join();
-        return m_Bitmap;
-    }
-
-    private void _Generate()
-    {
-        var browser = new WebBrowser { ScrollBarsEnabled = false };
-        browser.Navigate(m_Url);
-        browser.DocumentCompleted += WebBrowser_DocumentCompleted;
-
-        while (browser.ReadyState != WebBrowserReadyState.Complete)
+        try
         {
-            Application.DoEvents();
-        }
 
-        browser.Dispose();
-    }
+            var uri = new Uri(@url);
 
-    private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-    {
-        // Capture 
-        var browser = (WebBrowser)sender;
-        browser.ClientSize = new Size(browser.Document.Body.ScrollRectangle.Width, browser.Document.Body.ScrollRectangle.Bottom);
-        browser.ScrollBarsEnabled = false;
-        m_Bitmap = new Bitmap(browser.Document.Body.ScrollRectangle.Width, browser.Document.Body.ScrollRectangle.Bottom);
-        browser.BringToFront();
-        browser.DrawToBitmap(m_Bitmap, browser.Bounds);
-
-        // Save as file? 
-        if (m_FileName.Length > 0)
-        {
-            // Save 
-            m_Bitmap.SaveJPG100(m_FileName);
-        }
-    }
-}
-
-public static class BitmapExtensions
-{
-    public static void SaveJPG100(this Bitmap bmp, string filename)
-    {
-        var encoderParameters = new EncoderParameters(1);
-        encoderParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 100L);
-        bmp.Save(filename, GetEncoder(ImageFormat.Jpeg), encoderParameters);
-    }
-
-    public static void SaveJPG100(this Bitmap bmp, Stream stream)
-    {
-        var encoderParameters = new EncoderParameters(1);
-        encoderParameters.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 100L);
-        bmp.Save(stream, GetEncoder(ImageFormat.Jpeg), encoderParameters);
-    }
-
-    public static ImageCodecInfo GetEncoder(ImageFormat format)
-    {
-        var codecs = ImageCodecInfo.GetImageDecoders();
-
-        foreach (var codec in codecs)
-        {
-            if (codec.FormatID == format.Guid)
+            //Create a GcHtmlRenderer instance in a using block
+            using (var re = new GcHtmlRenderer(uri))
             {
-                return codec;
+                //Create a JpegSetting instance to specify the output image settings for the JPEG format
+                JpegSettings jpegSettings = new JpegSettings();
+                jpegSettings.DefaultBackgroundColor = System.Drawing.Color.White;
+                jpegSettings.WindowSize = new Size(1000, 1000);
+
+                //Finally, render the string to an image using RenderToJpeg method of GcHtmlRenderer
+                re.RenderToJpeg(uniqeName + ".jpeg", jpegSettings);
+                return imageToBase64(uniqeName + ".jpeg");
             }
         }
+        catch (Exception)
+        {
 
-        // Return 
-        return null;
+            return "";
+        }
     }
+
+    public static string imageToBase64(string path)
+    {
+        byte[] byteImage = System.IO.File.ReadAllBytes(path);
+        var compressedImage= CompressandBase64Helper.Compress(byteImage);
+        System.IO.File.Delete(path);
+        return Convert.ToBase64String(compressedImage);
+       
+    }
+
 }

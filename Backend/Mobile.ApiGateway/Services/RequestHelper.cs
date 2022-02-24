@@ -5,7 +5,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Threading;
+using CoreHtmlToImage;
 using DevTeam.Framework;
 using Mobile.ApiGateway.Models.Customs;
 using Mobile.ApiGateway.Models.Entities;
@@ -40,22 +42,14 @@ namespace Mobile.ApiGateway.Services
 
                     timer.Stop();
 
-
-                    // StreamReader reader = new StreamReader(response.GetResponseStream());
-                    // string urlText = reader.ReadToEnd(); // it takes the response from your url. now you can use as your need  
-
                     TimeSpan timeTaken = timer.Elapsed;
                     urldetail.urlId = url.Id;
                     urldetail.InsertDate = DateHelper.GetLocalDate(DateTime.UtcNow);
                     urldetail.status = (int)response.StatusCode;
-                    urldetail.responseTime = (int)timeTaken.TotalSeconds;
+                    urldetail.responseTime = (int)timeTaken.TotalMilliseconds;
                     response.Close();
-                    //todoekran görüntüsü almak kaldı burası için
-                    // Bitmap bitmap;
-                    // using (Stream stream = request.GetResponse().GetResponseStream())
-                    // {
-                    //     bitmap = new Bitmap(stream);
-                    // }
+                   var imageBase64= WebsiteToImage.takeScreenshotWithGcHtml(url.Urls,url.UserId.ToString()+"urlid"+url.Id.ToString(), 100,100);
+                    urldetail.screenShot = imageBase64;
                 }
                 catch (WebException ex)
                 {
@@ -81,20 +75,7 @@ namespace Mobile.ApiGateway.Services
 
             return urldetail;
         }
-        protected bool takeScreenshot(string url, int width, int height, int timeout = 10)
-        {
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("headless");//Comment if we want to see the window. 
-            var driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), options);
-            driver.Navigate().GoToUrl("https://www.google.com");
-            var screenshot = (driver as ITakesScreenshot).GetScreenshot();
-            screenshot.SaveAsFile("screenshot.png");
-            driver.Close();
-            driver.Quit();
-
-            return true;
-        }
-
+     
 
     }
 }

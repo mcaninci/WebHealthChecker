@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.Data.Sqlite;
 using Dapper;
+using Mobile.ApiGateway.Services;
 
 namespace Mobile.ApiGateway.Controllers
 {
@@ -117,7 +118,7 @@ namespace Mobile.ApiGateway.Controllers
                     UrlId = monitoringitem.urlId,
                     Url = url.url,
                     Status = monitoringitem.status,
-                    ScreenShot = monitoringitem.screenShot,
+                    ScreenShot = "data:image/png;base64," + ImageFunction.decompresimage(monitoringitem.screenShot),
                     ResponseTime = monitoringitem.responseTime
                 })).ToList();
                 returnObject.IsSuccess = true;
