@@ -45,10 +45,18 @@ export default function UrlMonitoringDetail(props) {
 
   const GridsDetailScreen = () => (
     <Layout style={styles.header}>
-      <ImageBackground
+    
+          {urlitem.screenShot.length>0?    <ImageBackground
         style={styles.image}
         source={{ uri: urlitem.screenShot }}
       />
+         :   <ImageBackground
+         style={styles.image}
+         source={require('../../../../../assets/images/pages/404.jpeg') }  />
+   
+          
+        }
+    
       <Layout
         style={styles.detailsContainer}
         level='1'>
@@ -56,7 +64,7 @@ export default function UrlMonitoringDetail(props) {
           category='h6'>
           URL : {urlitem.url}
           <View style={styles.itemThreeMetaContainer}>
-            {urlitem.status && (
+            {(
               <View
                 style={[
                   styles.badge,
@@ -78,7 +86,7 @@ export default function UrlMonitoringDetail(props) {
           style={styles.description}
           appearance='hint'
         >
-          Last Checked : {urlitem.insertDate}
+          Last Checked : {new Date(urlitem.insertDate).toLocaleString()}
         </Text>
 
 
@@ -90,7 +98,7 @@ export default function UrlMonitoringDetail(props) {
         <Text
           style={styles.size}
           appearance='hint'>
-          Response Time: {urlitem.responseTime}
+          Response Time: {urlitem.responseTime} ms
         </Text>
 
         <Button  accessoryLeft={Platform.OS=="android"?ShareAndroidIcon:ShareIOSIcon} style={styles.share} onPress={shareImage} >

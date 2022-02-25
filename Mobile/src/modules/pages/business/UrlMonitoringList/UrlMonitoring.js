@@ -13,11 +13,11 @@ import {
 import {
   Spinner
 } from '@ui-kitten/components';
- import { colors, fonts } from '../../../../styles';
+import { colors, fonts } from '../../../../styles';
 
- import {  getMonitoringList } from '../../../../services/api/users';
- import { useDispatch, useSelector } from 'react-redux';
- import { updateUrlFlag } from '../../../../redux/actions/authActions';
+import { getMonitoringList } from '../../../../services/api/users';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUrlFlag } from '../../../../redux/actions/authActions';
 
 
 
@@ -26,110 +26,114 @@ export default function UrlMonitoring(props) {
   const [urlMonitoringData, setUrlMonitoringData] = useState([]);
   const [loading, setloading] = useState(true);
   const auth = useSelector((state) => { return state.auth; });
-  const { isAuthenticated, user,updateurl } = auth ? auth : { "isAuthenticated": false, user: {},updateurl:true };
+  const { isAuthenticated, user, updateurl } = auth ? auth : { "isAuthenticated": false, user: {}, updateurl: true };
 
   const dispatch = useDispatch();
 
 
- 
-  const getMonitoringUrlList=()=>{
-  
+
+  const getMonitoringUrlList = () => {
+
     props.navigation.setParams({ handleSave: testevent });
-    getMonitoringList( res => {
-        if (res.isSuccess) {
-          var value = res.value.value;
-          dispatch(updateUrlFlag(false));
-          setUrlMonitoringData(value);
-           setloading(false);
-       
+    getMonitoringList(res => {
+      if (res.isSuccess) {
+        var value = res.value.value;
+        dispatch(updateUrlFlag(false));
+        setUrlMonitoringData(value);
+        setloading(false);
 
 
 
-        }
-        else {
-          setloading(false);
-          Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
-            {
-              text: 'Try again', onPress: () => {
 
-                getMonitoringUrlList();
+      }
+      else {
+        setloading(false);
+        Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
+          {
+            text: 'Try again', onPress: () => {
 
-              }
-            },
-            {
-              text: 'Cancel', onPress: () => {
+              getMonitoringUrlList();
 
-              }
             }
-          ]);
-        }
-      });
+          },
+          {
+            text: 'Cancel', onPress: () => {
+
+            }
+          }
+        ]);
+      }
+    });
   }
 
-  const testevent=()=>{
+  const testevent = () => {
 
     Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?');
-}
-  useEffect( () => {
-    if(urlMonitoringData.length==0 || updateurl){
+  }
+  useEffect(() => {
+    if (urlMonitoringData.length == 0 || updateurl) {
       getMonitoringUrlList();
     }
-  
-      
+
+
 
   }, [urlMonitoringData]);
 
 
-  if(updateurl){
+  if (updateurl) {
     getMonitoringUrlList();
   }
-  
+
 
   const _getRenderMonitoringItemFunction = () =>
     [MonitoringListItem][
-      props.tabIndex
+    props.tabIndex
     ];
 
-   const  _openMonitoringDetail = itemDatail => {
-      props.navigation.navigate('Url Monitoring Detail', {
-        itemDatail,
-      });
-    };
+  const _openMonitoringDetail = itemDatail => {
+    props.navigation.navigate('Url Monitoring Detail', {
+      itemDatail,
+    });
+  };
 
 
-    MonitoringListItem = ({ item }) => (
-      <TouchableOpacity
+  MonitoringListItem = ({ item }) => (
+    <TouchableOpacity
       key={item.id}
       style={styles.itemThreeContainer}
       onPress={() => _openMonitoringDetail(item)}
     >
       <View style={styles.itemThreeSubContainer}>
-        <Image source={{ uri: item.screenShot }} style={styles.itemThreeImage} />
+        {item.screenShot.length > 0 ? <Image source={{ uri: item.screenShot }} style={styles.itemThreeImage} />
+          : <Image source={require('../../../../../assets/images/pages/404.jpeg')} style={styles.itemThreeImage} />
+
+        }
+
         <View style={styles.itemThreeContent}>
-        
-          
-            <Text style={styles.itemThreeTitle}>{item.url}</Text>
-            <Text style={styles.itemThreeSubtitle} numberOfLines={1}>
-            Last Checked : {item.insertDate}
-            </Text>
-        
+
+
+          <Text style={styles.itemThreeTitle}>{item.url}</Text>
+          <Text style={styles.itemThreeSubtitle} numberOfLines={1}>
+            Last Checked : {new Date(item.insertDate).toLocaleString()}
+          </Text>
+
           <View style={styles.itemThreeMetaContainer}>
-            {item.status && (
+            {(
               <View
                 style={[
                   styles.badge,
-                  item.status ==200 && { backgroundColor: colors.green },
+                  item.status == 200 && { backgroundColor: colors.green }
                 ]}
               >
                 <Text
                   style={{ fontSize: 13, color: colors.white }}
                   styleName="bright"
                 >
-                  { item.status ==200 ?'Healthy':'Unhealthy'}
+                  {item.status == 200 ? 'Healthy' : 'Unhealthy'}
                 </Text>
               </View>
             )}
-         
+
           </View>
         </View>
       </View>
@@ -141,14 +145,14 @@ export default function UrlMonitoring(props) {
 
   const renderLoading = () => (
     <View style={styles.loading}>
-      <Spinner/>
+      <Spinner />
     </View>
   );
-    
+
 
   const renderData = () => (
-      <View style={styles.container}>
-       
+    <View style={styles.container}>
+      {urlMonitoringData.length > 0 ?
         <FlatList
           keyExtractor={item =>
             item.id
@@ -158,13 +162,18 @@ export default function UrlMonitoring(props) {
           style={{ backgroundColor: colors.white, paddingHorizontal: 15 }}
           data={urlMonitoringData}
           renderItem={_getRenderMonitoringItemFunction()}
-        />
-      </View>
-    );
+        /> : <View style={styles.loading}>
+          <Text style={styles.recordnot} numberOfLines={1}>
+          No Records Found
+        </Text>
+        
+        </View>}
+    </View>
+  );
 
 
-    return  loading==false ? renderData() : renderLoading();
-  
+  return loading == false ? renderData() : renderLoading();
+
 }
 
 const styles = StyleSheet.create({
@@ -172,7 +181,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'black'
+    backgroundColor: 'black'
+  },
+  recordnot: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontFamily: fonts.primaryBold,
+    fontSize: 25,
+    color: 'white',
+    marginTop:150
   },
   container: {
     flex: 1,

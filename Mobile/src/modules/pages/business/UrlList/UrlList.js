@@ -9,98 +9,101 @@ import {
   Alert,
 } from 'react-native';
 import {
-  Spinner
+  Spinner,
+  Button
 } from '@ui-kitten/components';
 
- import { colors, fonts } from '../../../../styles';
- import {  getUrls } from '../../../../services/api/users';
- import { useDispatch, useSelector } from 'react-redux';
- import { updateUrlFlag } from '../../../../redux/actions/authActions';
+import { colors, fonts } from '../../../../styles';
+import { getUrls } from '../../../../services/api/users';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUrlFlag } from '../../../../redux/actions/authActions';
 
 
-  export default function UrlList(props) {
+export default function UrlList(props) {
 
-    const [urlListData, setUrlListData] = useState([]);
-    const [loading, setloading] = useState(true);
-    const auth = useSelector((state) => { return state.auth; });
-    const { isAuthenticated, user,updateurl } = auth ? auth : { "isAuthenticated": false, user: {},updateurl:true };
+  const [urlListData, setUrlListData] = useState([]);
+  const [loading, setloading] = useState(true);
+  const auth = useSelector((state) => { return state.auth; });
+  const { isAuthenticated, user, updateurl } = auth ? auth : { "isAuthenticated": false, user: {}, updateurl: true };
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
 
+  const redirectSaveurl=()=>{ 
+    props.navigation.navigate('Save Url', {
     
-    
-    const getUrlList=()=>{
-      getUrls( res => {
-          if (res.isSuccess) {
-            var value = res.value.value;
-            dispatch(updateUrlFlag(false));
-            setUrlListData(value);
-             setloading(false);
-  
-          }
-          else {
-            setloading(false);
-            Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
-              {
-                text: 'Try again', onPress: () => {
-  
-                  getUrls();
-  
-                }
-              },
-              {
-                text: 'Cancel', onPress: () => {
-  
-                }
-              }
-            ]);
-          }
-        });
-  
-  
-      
-    }
+    });
+  }
 
-  useEffect( () => {
-    if(urlListData.length==0 || updateurl){
+  const getUrlList = () => {
+    getUrls(res => {
+      if (res.isSuccess) {
+        var value = res.value.value;
+        dispatch(updateUrlFlag(false));
+        setUrlListData(value);
+        setloading(false);
+
+      }
+      else {
+        setloading(false);
+        Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
+          {
+            text: 'Try again', onPress: () => {
+
+              getUrls();
+
+            }
+          },
+          {
+            text: 'Cancel', onPress: () => {
+
+            }
+          }
+        ]);
+      }
+    });
+
+
+
+  }
+
+  useEffect(() => {
+    if (urlListData.length == 0 || updateurl) {
       getUrlList();
     }
-      
-
-  }, [urlListData]);
 
 
-  if(updateurl){
-    getUrlList();
-  }
+  }, [urlListData,updateurl]);
+
+
+
 
   const _getRenderUrlItemFunction = () =>
     [UrlListItem][
-      props.tabIndex
+    props.tabIndex
     ];
 
-   const  _openUrlUpdate = itemDatail => {
-      props.navigation.navigate('Url Update', {
-        itemDatail,
-      });
-    };
-  
+  const _openUrlUpdate = itemDatail => {
+    props.navigation.navigate('Url Update', {
+      itemDatail,
+    });
+  };
 
- 
 
-   const UrlListItem = ({ item }) => (
-      
+
+
+  const UrlListItem = ({ item }) => (
+
     <TouchableOpacity
       key={item.id}
       style={styles.itemTwoContainer}
       onPress={() => _openUrlUpdate(item)}
     >
       <View style={styles.itemTwoContent}>
-       
+
         <View style={styles.itemTwoOverlay} />
         <Text style={styles.itemTwoTitle}>URL: {item.urls}</Text>
-        <Text style={styles.itemTwoSubTitle}>Schecule Time: {"Every day at "+(new Date(item.scheculeTime)).getHours()+":"+(new Date(item.scheculeTime)).getMinutes()}</Text>
+        <Text style={styles.itemTwoSubTitle}>Schecule Time: {"Every day at " + (new Date(item.scheculeTime)).getHours() + ":" + (new Date(item.scheculeTime)).getMinutes()}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -108,28 +111,37 @@ import {
 
   const renderLoading = () => (
     <View style={styles.loading}>
-      <Spinner/>
+      <Spinner />
     </View>
   );
 
 
   const renderData = () => (
     <View style={styles.container}>
-       
-    <FlatList
-      keyExtractor={item =>
-        item.id
-          ? `${props.tabIndex}-${item.id}`
-          : `${item[0] && item[0].id}`
-      }
-      style={{ backgroundColor: colors.black, paddingHorizontal: 15 }}
-      data={urlListData}
-      renderItem={_getRenderUrlItemFunction()}
-    />
-  </View>
+      {urlListData.length > 0 ?
+        <FlatList
+          keyExtractor={item =>
+            item.id
+              ? `${props.tabIndex}-${item.id}`
+              : `${item[0] && item[0].id}`
+          }
+          style={{ backgroundColor: colors.black, paddingHorizontal: 15 }}
+          data={urlListData}
+          renderItem={_getRenderUrlItemFunction()}
+        />
+        : <View style={styles.loading}>
+          <Button style={styles.signInButton}
+                onPress={redirectSaveurl}
+                >
+                Add New Url
+              </Button>
+        </View>}
+    </View>
+
+
   );
 
-    return  loading==false ? renderData() : renderLoading();
+  return loading == false ? renderData() : renderLoading();
 
 
 }
@@ -139,8 +151,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'black'
+    backgroundColor: 'black'
+  },  signInButton: {
+    marginHorizontal: 16,
+    minWidth: 300,
+    alignItems: 'center'
   },
+
   container: {
     flex: 1,
     backgroundColor: colors.black,
@@ -195,9 +212,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: '#3366ff',
     opacity: 0.8,
-  
+
   },
- 
+
   badge: {
     backgroundColor: colors.secondary,
     borderRadius: 10,

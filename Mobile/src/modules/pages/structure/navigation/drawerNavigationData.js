@@ -11,12 +11,12 @@ const saveurl = require('../../../../components/iconsvg/saveurl.png');
 
 const drawerData = [
   {
-    name: 'SaveUrl',
+    name: 'Save Url',
     component: SaveUrl,
     icon: saveurl,
   },
   {
-    name: 'UrlList',
+    name: 'Url List',
     component: UrlList,
     icon:  urllist,
   },
