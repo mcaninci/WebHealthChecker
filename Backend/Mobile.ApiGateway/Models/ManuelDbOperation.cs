@@ -84,7 +84,7 @@ namespace Mobile.ApiGateway
             }
         }
 
-         public static GenericResponse<int?> InsertHealthCheckUrl(Urls urlsModel)
+         public static GenericResponse<int?> InsertHealthCheckUrl( HealthCheckUrl healthCheckUrl)
         {
             GenericResponse<int?> returnObject = new GenericResponse<int?>();
             try
@@ -95,16 +95,17 @@ namespace Mobile.ApiGateway
                     connection.Open();
 
                     string insertUserSql = @"INSERT INTO HealthCheckURL(InsertDate, url_id, status,screenshot,response_time)
-                        VALUES(@InsertDate, @url_id, @status, @screenshot,response_time);SELECT rowid FROM user_definition order by 1 desc limit 1;";
+                        VALUES(@InsertDate, @url_id, @status, @screenshot,@response_time);SELECT rowid FROM user_definition order by 1 desc limit 1;";
 
                     int newUserId = connection.QuerySingle<int>(
                                         insertUserSql,
                                         new
                                         {
-                                            InsertDate = urlsModel.InsertDate,
-                                            url= urlsModel.url,
-                                            user_definition_id = urlsModel.userDefinitionId,
-                                            scheduletime = urlsModel.scheduletime
+                                            InsertDate = healthCheckUrl.InsertDate,
+                                            url_id= healthCheckUrl.urlId,
+                                            status = healthCheckUrl.status,
+                                            screenshot = healthCheckUrl.screenShot,
+                                            response_time=healthCheckUrl.responseTime
                                         }
                                         );
 

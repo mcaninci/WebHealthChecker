@@ -27,14 +27,17 @@ namespace HealthCheckWorker
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                   Task.Run(() => {
-                    ScheduleCalculate calculateurl=new ScheduleCalculate();
-                     var urlList= calculateurl.GetUrlForChecker();
-                     HealthChecker checker =new HealthChecker();
-                     checker.CheckUrlsList(urlList);
-                   
-                   });
-                await Task.Delay(59000, stoppingToken);
+                Task.Run(() =>
+                {
+                    ScheduleCalculate calculateurl = new ScheduleCalculate();
+                    var urlList = calculateurl.GetUrlForChecker();
+                    if (urlList.Count > 0)
+                    {
+                        HealthChecker checker = new HealthChecker();
+                        checker.CheckUrlsList(urlList);
+                    }
+                });
+                await Task.Delay(300000, stoppingToken);
             }
         }
     }

@@ -11,7 +11,6 @@ namespace Mobile.ApiGateway.Services
 {
     public class HealthChecker
     {
-        private readonly Urls _urlsRepository;
         public HealthChecker()
         {
 
@@ -22,8 +21,7 @@ namespace Mobile.ApiGateway.Services
             foreach (var url in urls)
             {
 
-                CheckUrlItem(url);
-               // ThreadPool.QueueUserWorkItem(state => CheckUrlItem(url));
+               ThreadPool.QueueUserWorkItem(state => CheckUrlItem(url));
 
             }
            
@@ -36,6 +34,7 @@ namespace Mobile.ApiGateway.Services
             
             RequestHelper requestHelper=new RequestHelper();
             HealthCheckUrl response= requestHelper.CallUrl(url);
+            GenericResponse<int?> saveResponse =  ManuelDbOperation.InsertHealthCheckUrl(response);
 
         }
 

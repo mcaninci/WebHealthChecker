@@ -12,7 +12,7 @@ public static class WebsiteToImage
     public static bool takeScreenshotWithHtmlConverter(string url, string uniqeName, int width, int height, int timeout = 10)
     {
         var converter = new HtmlConverter();
-        var bytes = converter.FromUrl("https://www.ensonhaber.com/");
+        var bytes = converter.FromUrl(url);
         File.WriteAllBytes(uniqeName + ".jpg", bytes);
 
         return true;
@@ -30,27 +30,36 @@ public static class WebsiteToImage
                 //Create a JpegSetting instance to specify the output image settings for the JPEG format
                 JpegSettings jpegSettings = new JpegSettings();
                 jpegSettings.DefaultBackgroundColor = System.Drawing.Color.White;
-                jpegSettings.WindowSize = new Size(1000, 1000);
+                jpegSettings.WindowSize = new Size(1000, 800);
 
                 //Finally, render the string to an image using RenderToJpeg method of GcHtmlRenderer
                 re.RenderToJpeg(uniqeName + ".jpeg", jpegSettings);
                 return imageToBase64(uniqeName + ".jpeg");
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            try
+            {
+                takeScreenshotWithHtmlConverter(url,uniqeName,width,height,timeout);
+                 return imageToBase64(uniqeName + ".jpeg");
+            }
+            catch (Exception excep)
+            {
 
-            return "";
+                return "";
+            }
+
         }
     }
 
     public static string imageToBase64(string path)
     {
         byte[] byteImage = System.IO.File.ReadAllBytes(path);
-        var compressedImage= CompressandBase64Helper.Compress(byteImage);
+        var compressedImage = CompressandBase64Helper.Compress(byteImage);
         System.IO.File.Delete(path);
         return Convert.ToBase64String(compressedImage);
-       
+
     }
 
 }

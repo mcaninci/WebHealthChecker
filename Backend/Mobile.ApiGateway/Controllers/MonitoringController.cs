@@ -106,23 +106,24 @@ namespace Mobile.ApiGateway.Controllers
             {
                 //todo montioring ekranı ve bu servisten devam edersin
                 var urls = _urlsRepository.GetList<Urls>(new { userDefinitionId = _authUserId });
-                var urlids=urls.Select(x=>x.Id).ToArray();
-                var monitoringList = _healthCheckUrlRepository.GetListConditions<HealthCheckUrl>("where urlId in @ids", new {ids = urlids});
+                var urlids = urls.Select(x => x.Id).ToArray();
+                //TODO burası bu güne ait dataları getir dediğinde çalışmıyor kontrol et 
+                var monitoringList = _healthCheckUrlRepository.GetListConditions<HealthCheckUrl>("where urlId in @ids and  strftime('%Y-%m-%d',insertdate) =@today", new { ids = urlids,yesterday=DateHelper.GetLocalDate(DateTime.UtcNow).ToString("YYYY-MM-DD")});
 
                 returnObject.Value = (from monitoringitem in monitoringList
-                join url in urls on monitoringitem.urlId equals url.Id
-                select( new MonitoringModel
-                {
-                    Id = monitoringitem.Id,
-                    InsertDate = monitoringitem.InsertDate,
-                    UrlId = monitoringitem.urlId,
-                    Url = url.url,
-                    Status = monitoringitem.status,
-                    ScreenShot = "data:image/png;base64," + ImageFunction.decompresimage(monitoringitem.screenShot),
-                    ResponseTime = monitoringitem.responseTime
-                })).ToList();
+                                      join url in urls on monitoringitem.urlId equals url.Id
+                                      select (new MonitoringModel
+                                      {
+                                          Id = monitoringitem.Id,
+                                          InsertDate = monitoringitem.InsertDate,
+                                          UrlId = monitoringitem.urlId,
+                                          Url = url.url,
+                                          Status = monitoringitem.status,
+                                          ScreenShot = (monitoringitem.screenShot != null ? "data:image/png;base64," + ImageFunction.decompresimage(monitoringitem.screenShot) : ""),
+                                          ResponseTime = monitoringitem.responseTime
+                                      })).ToList();
                 returnObject.IsSuccess = true;
-          
+
             }
             catch (Exception ex)
             {
