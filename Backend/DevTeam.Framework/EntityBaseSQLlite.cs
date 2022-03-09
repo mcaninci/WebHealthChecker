@@ -11,7 +11,7 @@ namespace DevTeam.Framework
     {
        
        // private static readonly string _connectionString="Data Source=/Users/mehmeti/Desktop/git component/Upwork/WebHealthChecker/Backend/DevTeam.Framework/webcheckerDb.db";
-        private static readonly string _connectionString="Data Source= /var/www/webhealthchecker/publish/webcheckerDb.db";
+        private static readonly string _connectionString="Data Source=/var/www/webhealthchecker/publish/webcheckerDb.db";
       
         [System.ComponentModel.DataAnnotations.Schema.Column("Id")]
         [System.ComponentModel.DataAnnotations.Key]
