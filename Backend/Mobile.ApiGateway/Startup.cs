@@ -29,38 +29,7 @@ namespace Mobile.ApiGateway
             services.AddMvc();
             services.AddControllers();
             Dapper.SimpleCRUD.SetDialect(SimpleCRUD.Dialect.MySQL);
-            //TODO:ben ihtiyacım kadarını ekledim sen buraları aşağıdaki gibi düzenlersin
-            //         var corsPolicy = Configuration["CorsPolicy"];
-            //          var corsPolicyModel = new CorsPolicy();//TODOMCI//bunun için model oluşturup tüm condfigu modele basıp burda kullanmak lazım
-            // Configuration.GetSection(CorsPolicy).Bind(corsPolicyModel);
-            // if (corsPolicy != null)
-            // {
-            // services.AddCors(options =>
-            // {
-            //     options.AddDefaultPolicy(builder =>
-            //     {
-            //         // if (corsPolicy.AllowSpecificOrigins.Contains("*"))
-            //         // {
-            //             builder.AllowAnyOrigin();
-            //                builder.WithOrigins("http://localhost:3000",
-            //                                   "http://localhost");
-            //         // }
-            //         // else
-            //         // {
-            //         //     builder.WithOrigins(corsPolicy.AllowSpecificOrigins.ToArray());
-            //         // }
-            //         // if (corsPolicy.AllowHeaders.Contains("*"))
-            //         // {
-            //             builder.AllowAnyHeader();
-            //         // }
-            //         // else
-            //         // {
-            //         //     builder.WithHeaders(corsPolicy.AllowHeaders.ToArray());
-            //         // }
-            //         builder.WithMethods();
-            //         // builder.AllowCredentials();
-            //     });
-            // });
+   
             //Cors policy
             services.AddCors(options =>
         {
@@ -105,6 +74,7 @@ namespace Mobile.ApiGateway
             {
                 app.UseDeveloperExceptionPage();
             }
+               app.UseExceptionHandler("/error-local-development");
 
             //app.UseHttpsRedirection();
 

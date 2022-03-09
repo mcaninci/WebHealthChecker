@@ -1,26 +1,26 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
+    <PackageReference Include="CoreHtmlToImage" Version="1.0.6" />
     <PackageReference Include="Dapper" Version="2.0.90" />
     <PackageReference Include="Dapper.Mapper" Version="2.0.0" />
     <PackageReference Include="Dapper.SimpleCRUD" Version="2.3.0" />
+    <PackageReference Include="GrapeCity.Documents.Html" Version="5.0.0.773" />
+    <PackageReference Include="GrapeCity.Documents.Html.Linux.X64" Version="5.0.0.773" />
+    <PackageReference Include="GrapeCity.Documents.Html.Mac.X64" Version="5.0.0.773" />
+    <PackageReference Include="GrapeCity.Documents.Html.Windows.X64" Version="5.0.0.773" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.11" />
     <PackageReference Include="MySql.Data" Version="8.0.26" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="DataContexts\" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\DevTeam.Framework\DevTeam.Framework.csproj" />
   </ItemGroup>
-
-
 </Project>

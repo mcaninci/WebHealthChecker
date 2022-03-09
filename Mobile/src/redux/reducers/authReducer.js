@@ -1,4 +1,4 @@
-import {ALL_USERS, LOGIN_SUCCESS,LOGOUT_SUCCESS, DONATE_SUCCESS,LOAD_USER} from '../actions/types';
+import {ALL_USERS, LOGIN_SUCCESS,LOGOUT_SUCCESS, DONATE_SUCCESS,LOAD_USER,UPDATE_URL} from '../actions/types';
 
 const intialState = {
   isAuthenticated: false,
@@ -6,7 +6,7 @@ const intialState = {
   userDetail:null,
   allUsers: [],
   myID: null,
-
+  updateurl:false,
 };
 
 export default (state = intialState, {payload, type}) => {
@@ -34,6 +34,12 @@ export default (state = intialState, {payload, type}) => {
         ...state,
         ...payload,
         isAuthenticated: true
+      };
+      case UPDATE_URL:  
+      return {
+        ...state,
+        ...payload,
+        updateurl: payload.updateurl
       };
     case ALL_USERS:
       return {

@@ -1,11 +1,11 @@
 com/Heskisayol/BuildConfig.java
  com.Heskisayol.BuildConfig
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
+com/reactnativestarter/MainApplication.java
+ com.Heskisayol.MainApplication
+ com.Heskisayol.MainApplication$1
 com/reactnativestarter/MainActivity.java
  com.Heskisayol.MainActivity
 com/reactnativestarter/SplashActivity.java
  com.Heskisayol.SplashActivity
-com/reactnativestarter/MainApplication.java
- com.Heskisayol.MainApplication
- com.Heskisayol.MainApplication$1
-com/facebook/react/PackageList.java
- com.facebook.react.PackageList

@@ -13,4 +13,11 @@ namespace Mobile.ApiGateway.Models.Customs
         Bronze = 4
 
     }
+    public enum UrlPrefixType
+    {
+        None = 0,
+        HTTP = 1,
+        HTTPS = 2
+
+    }
 }

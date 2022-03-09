@@ -1,20 +1,28 @@
-import { LOGIN_SUCCESS, LOGOUT_SUCCESS, LOAD_USER } from './types';
+import { LOGIN_SUCCESS, LOGOUT_SUCCESS, LOAD_USER,UPDATE_URL } from './types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const login = ({ email, password, token }) => async (dispatch) => {
+export const login = ({  token,hashcode }) => async (dispatch) => {
 
   dispatch({
     type: LOGIN_SUCCESS,
     payload: {
       user: {
         token: token,
-        email: email,
-        pass: password  
+        hashcode:hashcode
       }
     }
   });
 
-  dispatch(setUser(token, email, password));
+  dispatch(setUser(token, hashcode));
+
+
+};
+export const updateUrlFlag = (updateurl) => async (dispatch) => {
+
+  dispatch({
+    type: UPDATE_URL,
+    payload: {updateurl:updateurl }
+  });
 
 
 };
@@ -28,13 +36,10 @@ export const setUserDetail = (userobject) => async (dispatch) => {
   });
 
 
-
-
-
 };
 
 export const GetToken =  async () => {
-  const token = await AsyncStorage.getItem('token');
+  const token = await AsyncStorage.getItem('@token');
   return  token||"null";
 }; 
 
@@ -56,22 +61,22 @@ export const logout = () => async (dispatch) => {
   });
 };
 
-export const setUser = (token, email, password) => async (dispatch) => {
+export const setUser = (token, hashcode,) => async (dispatch) => {
 
   await AsyncStorage.setItem('@token', token).toString() ?? "".toString();
-  await AsyncStorage.setItem('@email', email.toString() ?? "".toString());
-  await AsyncStorage.setItem('@password', password.toString() ?? "".toString());
+  await AsyncStorage.setItem('@hashcode', hashcode.toString() ?? "".toString());
+
 };
 
 // Load a user from async storage 
 export const loadUser = () => async (dispatch) => {
 
   const token = await AsyncStorage.getItem('@token');
-  const email = await AsyncStorage.getItem('@email');
-  const password = await AsyncStorage.getItem('@password');
+  const hashcode = await AsyncStorage.getItem('@hashcode');
 
-  if (token || email || password) {
-    dispatch(login({ email, password, token }));
+
+  if (token || hashcode ) {
+    dispatch(login({ token, hashcode }));
   }
 
 };

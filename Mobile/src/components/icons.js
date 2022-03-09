@@ -8,6 +8,12 @@ import { IconSvg } from './iconsvg/iconsvg';
 
 import { G, Path,SvgXml } from 'react-native-svg';
 import Identitfy from  '../components/iconsvg/Identitfy.svg';
+import ShareAndroid from  '../components/iconsvg/shareandroid.svg';
+import ShareIOS from  '../components/iconsvg/shareios.svg';
+
+import Delete from  '../components/iconsvg/delete.svg';
+import Save from  '../components/iconsvg/save.svg';
+import Time from  '../components/iconsvg/time.svg';
 
 const deneme= {
   SortArrows: <G><Path d="M0 45h90L45 0 0 45z"/><Path d="M0 55h90l-45 45L0 55z"/></G>,
@@ -66,6 +72,26 @@ export const IdentityIcon = (props) => (
 <Identitfy fill='white' {...props}></Identitfy>
  
 );
+export const ShareAndroidIcon = (props) => (
+  <ShareAndroid fill='white' {...props}></ShareAndroid>
+   
+  );
+
+  export const ShareIOSIcon = (props) => (<ShareIOS fill='white' {...props}></ShareIOS>);
+
+  export const SaveIcon = (props) => (
+    <Save fill='white' {...props}></Save>
+     
+    );
+    export const DeleteIcon = (props) => (
+      <Delete fill='white' {...props}></Delete>
+       
+      );
+      export const TimeIcon = (props) => (
+        <Time fill='white' {...props}></Time>
+         
+        );
+    
 
 export const VerifiedIcon = (props) => (
   // <Icondeneme {...props}  name="Verified"  />

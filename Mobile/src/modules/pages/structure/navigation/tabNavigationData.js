@@ -1,34 +1,34 @@
 
 import SaveUrl from '../../business/SaveUrl/SaveUrlViewContainer';
 import UrlList from '../../business/UrlList/UrlListViewContainer';
-import Monitoring from '../../business/SaveUrl/SaveUrlViewContainer';
-import UrlUpdate from '../../business/UrlUpdate/UrlUpdateViewContainer';
+import Monitoring from '../../business/UrlMonitoringList/UrlMonitoringViewContainer';
+
 
 //import EditIcon from '@material-ui/icons/Edit';
 //import EditIcon from '../../../../../assets/icons/user.png';
 import {IdentityIcon} from '../../../../components/icons';
-const iconIdentity = require('../../../../components/iconsvg/identity.png');
-const chat = require('../../../../components/iconsvg/chat.png');
-const reviews = require('../../../../components/iconsvg/reviews.png');
-const payment = require('../../../../components/iconsvg/payments.png');
+
+const monitoring = require('../../../../components/iconsvg/monitoring.png');
+const urllist = require('../../../../components/iconsvg/urllist.png');
+const saveurl = require('../../../../components/iconsvg/saveurl.png');
 
 
 const tabNavigationData = [
 
   {
-    name: 'SaveUrl',
+    name: 'Save Url',
     component: SaveUrl,
-    icon: iconIdentity,
+    icon: saveurl,
   },
   {
-    name: 'UrlList',
+    name: 'Url List',
     component: UrlList,
-    icon: reviews,
+    icon: urllist,
   },
   {
     name: 'Monitoring',
     component: Monitoring,
-    icon: chat,
+    icon: monitoring,
   },
 
   

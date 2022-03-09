@@ -13,8 +13,12 @@ import java.util.ArrayList;
 
 // @react-native-async-storage/async-storage
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+// @react-native-community/datetimepicker
+import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 // @react-native-community/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// @react-native-community/netinfo
+import com.reactnativecommunity.netinfo.NetInfoPackage;
 // @react-native-community/progress-bar-android
 import com.reactnativecommunity.androidprogressbar.RNCProgressBarPackage;
 // @react-native-community/progress-view
@@ -39,12 +43,16 @@ import com.swmansion.reanimated.ReanimatedPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
+// react-native-share
+import cl.json.RNSharePackage;
 // react-native-splash-screen
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 // react-native-svg
 import com.horcrux.svg.SvgPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
+// react-native-view-shot
+import fr.greweb.reactnativeviewshot.RNViewShotPackage;
 // rn-fetch-blob
 import com.RNFetchBlob.RNFetchBlobPackage;
 
@@ -93,7 +101,9 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
+      new RNDateTimePickerPackage(),
       new RNCMaskedViewPackage(),
+      new NetInfoPackage(),
       new RNCProgressBarPackage(),
       new RNCProgressViewPackage(),
       new ReactToolbarPackage(),
@@ -106,9 +116,11 @@ public class PackageList {
       new ReanimatedPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),
+      new RNSharePackage(),
       new SplashScreenReactPackage(),
       new SvgPackage(),
       new VectorIconsPackage(),
+      new RNViewShotPackage(),
       new RNFetchBlobPackage()
     ));
   }

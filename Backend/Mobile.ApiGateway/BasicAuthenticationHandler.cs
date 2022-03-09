@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Mobile.ApiGateway.Models.Entities;
+using System.Text;
+using System;
 
 namespace Mobile.ApiGateway
 {
@@ -41,26 +43,20 @@ namespace Mobile.ApiGateway
             }
 
             var token = authHeaderRegex.Replace(authorizationHeader, "$1");
-            //var authBase64 = Encoding.UTF8.GetString(Convert.FromBase64String(token));
-            //var authSplit = authBase64.Split(Convert.ToChar(":"), 2);
-            //var authUsername = authSplit[0];
-            //var authPassword = authSplit.Length > 1 ? authSplit[1] : throw new Exception("Unable to get password");
-
+            
+            var authBase64 = Encoding.UTF8.GetString(Convert.FromBase64String(token));
+    
             UserDefinition userDefinition = new UserDefinition();
-            UserDefinition user = userDefinition.GetList<UserDefinition>(new { Token = token }).FirstOrDefault();
+            UserDefinition user = userDefinition.GetList<UserDefinition>(new { Token = authBase64 }).FirstOrDefault();
             if (user != null)
             {
-                var authenticatedUser = new AuthenticatedUser("BasicAuthentication", true, user.Name);
+                var authenticatedUser = new AuthenticatedUser("BasicAuthentication", true, user.HashCode);
                 var claims = new[] {
                     new Claim("UserId", user.Id.ToString()),
-                    new Claim("UserType", ((int)user.UserType).ToString()),
-                    new Claim("UserCode", user.Code),
+                    new Claim("UserHashCode", user.HashCode),
                 };
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(authenticatedUser, claims);
                
-                //var identity = new ClaimsIdentity(claims, "BasicAuthentication");
-                //var principal = new ClaimsPrincipal(identity);
-                //var ticket = new AuthenticationTicket(principal, "BasicAuthenticationScheme");
 
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
@@ -69,15 +65,7 @@ namespace Mobile.ApiGateway
 
             return Task.FromResult(AuthenticateResult.Fail("Login failed"));
 
-            //if (authUsername != "roundthecode" || authPassword != "roundthecode")
-            //{
-            //    return Task.FromResult(AuthenticateResult.Fail("The username or password is not correct."));
-            //}
-
-            //var authenticatedUser = new AuthenticatedUser("BasicAuthentication", true, "roundthecode");
-            //var claimsPrincipal = new ClaimsPrincipal(new ClaimsIdentity(authenticatedUser));
-
-            //return Task.FromResult(AuthenticateResult.Success(new AuthenticationTicket(claimsPrincipal, Scheme.Name)));
+        
         }
     }
 }

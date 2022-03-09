@@ -41,6 +41,7 @@ export default function NavigatorView(props) {
           component={item.component} 
           options={{
             headerLeft: item.headerLeft || headerLeftComponentMenu,
+            headerRight: item.headerRight ?item.headerRight:null,
             headerStyle: {
                backgroundColor:colors.headerColor
              
@@ -71,7 +72,7 @@ export default function NavigatorView(props) {
 
 
    
-   <Stack.Navigator screenOptions={{headerShown: true}} >
+   <Stack.Navigator {...props} screenOptions={{headerShown: true}} >
   
   {navigatepage}
 

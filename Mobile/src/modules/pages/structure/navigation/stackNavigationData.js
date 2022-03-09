@@ -1,7 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 import UrlUpdate from '../../business/UrlUpdate/UrlUpdateViewContainer';
-import Monitoring from '../../business/SaveUrl/SaveUrlViewContainer';
+import UrlMonitoringDetail from '../../business/UrlMonitoringDetail/UrlMonitoringDetailViewContainer';
+
+
 
 import TabNavigator from './MainTabNavigator';
 import LoginScreen from '../../authenticationAndAuthorization/login/LoginViewContainer';
@@ -18,6 +20,26 @@ const headerLeftComponent = (props) => {
     >
       <Image
         source={require('../../../../../assets/icons/arrow-back.png')}
+        resizeMode="contain"
+        style={{
+          height: 20,
+        }}
+      />
+    </TouchableOpacity>    
+  )
+}
+const headerRightComponent = (props) => {
+  return (
+    <TouchableOpacity
+      onPress={props.handleSave}
+      style={{
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+
+      }}
+    >
+      <Image
+        source={require('../../../../../assets/icons/delete.png')}
         resizeMode="contain"
         style={{
           height: 20,
@@ -43,8 +65,20 @@ const StackNavigationData = [
 
   },
   {
-    name: 'UrlUpdate',
+    name: 'Url Update',
     component: UrlUpdate,
+    headerLeft: headerLeftComponent,
+    // headerRight: headerRightComponent,
+    headerBackground: { source: headerBackground },
+    headerTitleStyle: {
+      fontFamily: fonts.primaryRegular,
+      color: colors.white,
+      fontSize: 18,
+    }
+  },
+  {
+    name: 'Url Monitoring Detail',
+    component: UrlMonitoringDetail,
     headerLeft: headerLeftComponent,
     headerBackground: { source: headerBackground },
     headerTitleStyle: {

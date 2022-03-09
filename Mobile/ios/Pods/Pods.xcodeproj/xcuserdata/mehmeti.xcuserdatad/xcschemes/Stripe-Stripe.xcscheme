@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2C0B358979DDB18B955A5CBE02F51805"
-               BuildableName = "Stripe.bundle"
+               BuildableName = "Stripe-Stripe.bundle"
                BlueprintName = "Stripe-Stripe"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
