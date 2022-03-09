@@ -10,7 +10,9 @@ namespace DevTeam.Framework
     public abstract class EntityBaseSQLlite<T>
     {
        
-        private static readonly string _connectionString="Data Source=/Users/mehmeti/Desktop/git component/Upwork/WebHealthChecker/Backend/DevTeam.Framework/webcheckerDb.db";
+       // private static readonly string _connectionString="Data Source=/Users/mehmeti/Desktop/git component/Upwork/WebHealthChecker/Backend/DevTeam.Framework/webcheckerDb.db";
+        private static readonly string _connectionString="Data Source= /var/www/webhealthchecker/publish/webcheckerDb.db";
+      
         [System.ComponentModel.DataAnnotations.Schema.Column("Id")]
         [System.ComponentModel.DataAnnotations.Key]
         public int Id { get; set; }
