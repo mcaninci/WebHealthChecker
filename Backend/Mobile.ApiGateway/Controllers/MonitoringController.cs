@@ -104,11 +104,9 @@ namespace Mobile.ApiGateway.Controllers
             GenericResponse<List<MonitoringModel>> returnObject = new GenericResponse<List<MonitoringModel>>();
             try
             {
-                //todo montioring ekranı ve bu servisten devam edersin
                 var urls = _urlsRepository.GetList<Urls>(new { userDefinitionId = _authUserId });
                 var urlids = urls.Select(x => x.Id).ToArray();
-                //TODO burası bu güne ait dataları getir dediğinde çalışmıyor kontrol et 
-                var monitoringList = _healthCheckUrlRepository.GetListConditions<HealthCheckUrl>("where urlId in @ids and  strftime('%Y-%m-%d',insertdate) =@today", new { ids = urlids,yesterday=DateHelper.GetLocalDate(DateTime.UtcNow).ToString("YYYY-MM-DD")});
+                var monitoringList = _healthCheckUrlRepository.GetListConditions<HealthCheckUrl>("where urlId in @ids and  strftime('%Y-%m-%d',insertdate) =@today", new { ids = urlids,today=DateHelper.GetLocalDate(DateTime.UtcNow).ToString("yyyy-MM-dd")});
 
                 returnObject.Value = (from monitoringitem in monitoringList
                                       join url in urls on monitoringitem.urlId equals url.Id

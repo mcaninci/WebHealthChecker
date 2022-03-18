@@ -9,7 +9,7 @@ namespace DevTeam.Framework
         {
             try
             {
-                return (date.Kind != DateTimeKind.Local) ? TimeZoneInfo.ConvertTimeFromUtc(date, TimeZoneInfo.Local) : date;
+                return (date.Kind != DateTimeKind.Utc) ? TimeZoneInfo.ConvertTimeToUtc(date, TimeZoneInfo.Utc) : date;
 
             }
             catch (Exception)

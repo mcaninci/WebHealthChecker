@@ -150,7 +150,7 @@ namespace Mobile.ApiGateway.Controllers
         [HttpPost]
         public IActionResult SignUp([FromBody] UserDefinition userDefinitionModel)
         {
-            GenericResponse<string> returnObject = new GenericResponse<string>();
+            GenericResponse<UserDefinition> returnObject = new GenericResponse<UserDefinition>();
 
             string plainText = $"{userDefinitionModel.HashCode}:EnBuyukGalatasaray";
             var userhashtemp = GetInt32HashCode(plainText).ToString();
@@ -178,8 +178,8 @@ namespace Mobile.ApiGateway.Controllers
             }
 
 
-
-            return Ok(userDefinitionModel);
+            returnObject.Value=userDefinitionModel;
+            return Ok(returnObject);
 
         }
 

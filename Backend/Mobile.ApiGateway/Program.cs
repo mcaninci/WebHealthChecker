@@ -22,6 +22,7 @@ namespace Mobile.ApiGateway
             Host.CreateDefaultBuilder(args)
           .ConfigureWebHostDefaults(webBuilder =>
             {
+                 webBuilder.UseUrls("http://*:8080", "https://*:8081");    
                 webBuilder.UseStartup<Startup>();
             })
             .ConfigureServices(services =>
