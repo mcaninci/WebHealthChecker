@@ -23,7 +23,7 @@ import { updateUrlFlag } from '../../../../redux/actions/authActions';
 
 export default function UrlMonitoring(props) {
 
-  const [urlMonitoringData, setUrlMonitoringData] = useState([]);
+  const [urlMonitoringData, setUrlMonitoringData] = useState(undefined);
   const [loading, setloading] = useState(true);
   const auth = useSelector((state) => { return state.auth; });
   const { isAuthenticated, user, updateurl } = auth ? auth : { "isAuthenticated": false, user: {}, updateurl: true };
@@ -38,12 +38,8 @@ export default function UrlMonitoring(props) {
     getMonitoringList(res => {
       if (res.isSuccess) {
         var value = res.value.value;
-        dispatch(updateUrlFlag(false));
         setUrlMonitoringData(value);
         setloading(false);
-
-
-
 
       }
       else {
@@ -71,7 +67,8 @@ export default function UrlMonitoring(props) {
     Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?');
   }
   useEffect(() => {
-    if (urlMonitoringData.length == 0 || updateurl) {
+    dispatch(updateUrlFlag(false));
+    if (urlMonitoringData == undefined || updateurl) {
       getMonitoringUrlList();
     }
 

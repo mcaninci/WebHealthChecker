@@ -21,7 +21,7 @@ import { updateUrlFlag } from '../../../../redux/actions/authActions';
 
 export default function UrlList(props) {
 
-  const [urlListData, setUrlListData] = useState([]);
+  const [urlListData, setUrlListData] = useState(undefined);
   const [loading, setloading] = useState(true);
   const auth = useSelector((state) => { return state.auth; });
   const { isAuthenticated, user, updateurl } = auth ? auth : { "isAuthenticated": false, user: {}, updateurl: true };
@@ -39,7 +39,7 @@ export default function UrlList(props) {
     getUrls(res => {
       if (res.isSuccess) {
         var value = res.value.value;
-        dispatch(updateUrlFlag(false));
+   
         setUrlListData(value);
         setloading(false);
 
@@ -68,7 +68,8 @@ export default function UrlList(props) {
   }
 
   useEffect(() => {
-    if (urlListData.length == 0 || updateurl) {
+    dispatch(updateUrlFlag(false));
+    if (urlListData==undefined || updateurl) {
       getUrlList();
     }
 

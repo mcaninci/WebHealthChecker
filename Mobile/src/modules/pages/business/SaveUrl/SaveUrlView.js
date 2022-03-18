@@ -8,24 +8,23 @@ import {
   Text,
   Button,
   StyleService,
-  Input, Divider, RadioGroup, Radio,Spinner
+  Input, Divider, RadioGroup, Radio, Spinner
 } from '@ui-kitten/components';
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { ImageOverlay } from '../../../../components/image-overlay';
 import { useDispatch, useSelector } from 'react-redux';
 import { userRegister, saveUrl } from '../../../../services/api/users';
-import { TimeIcon,SaveIcon } from '../../../../components/icons';
+import { TimeIcon, SaveIcon } from '../../../../components/icons';
 
 
-
-
-import { login } from '../../../../redux/actions/authActions';
+import { login,updateUrlFlag } from '../../../../redux/actions/authActions';
 
 export default function SaveUrlView(props) {
   const netInfo = useNetInfo();
   const auth = useSelector((state) => { return state.auth; });
-  const { isAuthenticated, user } = auth ? auth : { "isAuthenticated": false, user: {} };
+  const { isAuthenticated, user, updateurl } = auth ? auth : { "isAuthenticated": false, user: {}, updateurl: true };
+
 
 
   const [userData, setuserData] = React.useState({});
@@ -61,10 +60,25 @@ export default function SaveUrlView(props) {
       if (res.isSuccess) {
 
 
-        dispatch(login({ token: res.value.token, hashcode: hashcode }));
+        dispatch(login({ token: res.value.value.token, hashcode: hashcode }));
         setloading(false);
       }
       else {
+        setloading(false);
+        Alert.alert('Oops, something wrong. The operation failed. Do you want to try again?', '', [
+          {
+            text: 'Try again', onPress: () => {
+
+              getUrls();
+
+            }
+          },
+          {
+            text: 'Cancel', onPress: () => {
+
+            }
+          }
+        ]);
         console.log(res.data);
       }
     });
@@ -76,7 +90,7 @@ export default function SaveUrlView(props) {
     var breakFlag = false;
     NetInfo.fetch().then(state => {
       if (state.isConnected) {
-        if (!isAuthenticated) {
+        if (!isAuthenticated || !user.token) {
           registerUser();
         }
 
@@ -92,18 +106,7 @@ export default function SaveUrlView(props) {
       }
     });
   }
-  // www.bimcelliymxdx.tk
-  // ;www.bim22pazar.com
-  // ;www.subegarantibbvacomtr.tk
-  // ;www.b2cemllpzraksamlarr.com
-  // ;www.mybijiimcelcitlykl.com
-  // ;www.destekteb.tk
-  // ;www.bimcell043243.com
-  // ;www.bimcelleodemelwq.com
-  // ;www.internetsubesi.bildirimgirisi.xyz
-  // ;www.paributtansferodulleri.com
-  // ;www.cpanel.ziraatbanki.info
-  // ;www.denizacikv3girisvv.ml
+
   useEffect(() => {
     checkConnectionandRegister();
   }, [userData]);
@@ -126,6 +129,9 @@ export default function SaveUrlView(props) {
     else {
       saveUrl({ Urls: multilineInputState.urls, PrefixType: selectedIndex, ScheculeTime: date }, res => {
         setloading(false);
+
+          dispatch(updateUrlFlag(true));
+        
         if (res.isSuccess) {
           var value = res.value.value;
 
@@ -234,19 +240,19 @@ export default function SaveUrlView(props) {
                 accessoryLeft={TimeIcon} >
                 Set Schecule Time
               </Button>
- 
+
             </View>
 
             <View style={[styles.containerRow, btnextr]}>
               <Text style={styles.Urltext}>These URLs are checked every day at {date.getHours() + ":" + date.getMinutes()}  by the web health checker.</Text>
               {/* // alignSelf : 'stretch'  */}
               <Divider style={{ backgroundColor: 'white', marginTop: 30, height: 5 }} />
-              {loading ?     <View style={styles.loading}>
-      <Spinner/>
-    </View>:<Button accessoryLeft={SaveIcon} style={styles.signInButton} onPress={saveUrls} >
+              {loading ? <View style={styles.loading}>
+                <Spinner />
+              </View> : <Button accessoryLeft={SaveIcon} style={styles.signInButton} onPress={saveUrls} >
                 Save Urls
-              </Button>}  
-    
+              </Button>}
+
             </View>
 
 
@@ -271,7 +277,7 @@ export default function SaveUrlView(props) {
 
 const styles = StyleService.create({
   loading: {
-  
+
     justifyContent: 'center',
     alignItems: 'center',
   },
