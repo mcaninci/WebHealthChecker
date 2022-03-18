@@ -43,6 +43,7 @@ namespace Mobile.ApiGateway
             }
             catch (Exception excp)
             {
+                    throw new Exception( excp.Message);
                 returnObject.Results.Add(new Result("", excp.Message));
                 return returnObject;
             }
@@ -79,6 +80,7 @@ namespace Mobile.ApiGateway
             }
             catch (Exception excp)
             {
+                     throw new Exception( excp.Message);
                 returnObject.Results.Add(new Result("", excp.Message));
                 return returnObject;
             }
