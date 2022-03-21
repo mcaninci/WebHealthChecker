@@ -12,7 +12,8 @@ namespace Mobile.ApiGateway
     public class ManuelDbOperation
     {
 
-        private static readonly string _connectionString = "Data Source=/Users/mehmeti/Desktop/git component/Upwork/WebHealthChecker/Backend/DevTeam.Framework/webcheckerDb.db";
+       private static readonly string _connectionString = "Data Source=/Users/mehmeti/Desktop/git component/Upwork/WebHealthChecker/Backend/DevTeam.Framework/webcheckerDb.db";
+      // private static readonly string _connectionString="Data Source=/var/www/webhealthchecker/publish/webcheckerDb.db";
         public static GenericResponse<int?> InsertUserDefinition(UserDefinition userDefinitionModel)
         {
             GenericResponse<int?> returnObject = new GenericResponse<int?>();
@@ -118,6 +119,7 @@ namespace Mobile.ApiGateway
             }
             catch (Exception excp)
             {
+                   throw new Exception( excp.Message);
                 returnObject.Results.Add(new Result("", excp.Message));
                 return returnObject;
             }
