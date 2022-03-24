@@ -44,10 +44,10 @@ namespace Mobile.ApiGateway
 
             var token = authHeaderRegex.Replace(authorizationHeader, "$1");
             
-            var authBase64 = Encoding.UTF8.GetString(Convert.FromBase64String(token));
+           // var authBase64 = Encoding.UTF8.GetString(Convert.FromBase64String(token));
     
             UserDefinition userDefinition = new UserDefinition();
-            UserDefinition user = userDefinition.GetList<UserDefinition>(new { Token = authBase64 }).FirstOrDefault();
+            UserDefinition user = userDefinition.GetList<UserDefinition>(new { Token = token }).FirstOrDefault();
             if (user != null)
             {
                 var authenticatedUser = new AuthenticatedUser("BasicAuthentication", true, user.HashCode);
